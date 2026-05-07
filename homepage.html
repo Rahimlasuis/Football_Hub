@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Football Hub</title>
+    <style>
+        body {
+            background-color: rgb(118, 190, 214);
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            veertical-align: middle;
+            width: 60%;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Welcome to Football Hub</h1>
+    </div>
+    <div>
+        <input class="search-bar" type="text" placeholder="Search about players, clubs, matches, stats">
+    </div>
+    <div class="premier_league table">
+        <p>The premier league table</p>
+        <table border="1" cellspacing="0" cellpadding="5" style="display: inline-block;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Club</th>
+                    <th>MP</th>
+                    <th>W</th>
+                    <th>D</th>
+                    <th>L</th>
+                    <th>Pts</th>
+                    <th>GD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Arsenal</td>
+                    <td>35</td>
+                    <td>23</td>
+                    <td>7</td>
+                    <td>5</td>
+                    <td>76</td>
+                    <td>41</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Man City</td>
+                    <td>34</td>
+                    <td>21</td>
+                    <td>8</td>
+                    <td>5</td>
+                    <td>71</td>
+                    <td>37</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Man United</td>
+                    <td>35</td>
+                    <td>18</td>
+                    <td>10</td>
+                    <td>7</td>
+                    <td>64</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Liverpool</td>
+                    <td>35</td>
+                    <td>17</td>
+                    <td>7</td>
+                    <td>11</td>
+                    <td>58</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Aston Villa</td>
+                    <td>35</td>
+                    <td>17</td>
+                    <td>7</td>
+                    <td>11</td>
+                    <td>58</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Bournemouth</td>
+                    <td>35</td>
+                    <td>12</td>
+                    <td>16</td>
+                    <td>7</td>
+                    <td>52</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Brentford</td>
+                    <td>35</td>
+                    <td>14</td>
+                    <td>9</td>
+                    <td>12</td>
+                    <td>51</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Brighton</td>
+                    <td>35</td>
+                    <td>13</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>50</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Chelsea</td>
+                    <td>35</td>
+                    <td>13</td>
+                    <td>9</td>
+                    <td>13</td>
+                    <td>48</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Everton</td>
+                    <td>35</td>
+                    <td>13</td>
+                    <td>9</td>
+                    <td>13</td>
+                    <td>48</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Fulham</td>
+                    <td>35</td>
+                    <td>14</td>
+                    <td>6</td>
+                    <td>15</td>
+                    <td>48</td>
+                    <td>-5</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Sunderland</td>
+                    <td>35</td>
+                    <td>12</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>47</td>
+                    <td>-9</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Newcastle</td>
+                    <td>35</td>
+                    <td>13</td>
+                    <td>6</td>
+                    <td>16</td>
+                    <td>45</td>
+                    <td>-2</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Leeds</td>
+                    <td>35</td>
+                    <td>10</td>
+                    <td>13</td>
+                    <td>12</td>
+                    <td>43</td>
+                    <td>-5</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Palace</td>
+                    <td>34</td>
+                    <td>11</td>
+                    <td>10</td>
+                    <td>13</td>
+                    <td>43</td>
+                    <td>-6</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Nottm Forest</td>
+                    <td>35</td>
+                    <td>11</td>
+                    <td>9</td>
+                    <td>15</td>
+                    <td>42</td>
+                    <td>-2</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Tottenham</td>
+                    <td>35</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>16</td>
+                    <td>37</td>
+                    <td>-9</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>West Ham</td>
+                    <td>35</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>17</td>
+                    <td>36</td>
+                    <td>-19</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Burnley</td>
+                    <td>35</td>
+                    <td>4</td>
+                    <td>8</td>
+                    <td>23</td>
+                    <td>20</td>
+                    <td>-36</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Wolves</td>
+                    <td>35</td>
+                    <td>3</td>
+                    <td>9</td>
+                    <td>23</td>
+                    <td>18</td>
+                    <td>-38</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="top_scorers premier_league">
+        <p>Top Scorers</p>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Goals</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Erling Haaland</td>
+                    <td>Man City</td>
+                    <td>25</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>Igor Thiago</td>
+                    <td>Brentford</td>
+                    <td>22</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td>Antoine Semenyo</td>
+                    <td>Man City</td>
+                    <td>15</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>4</td>
+                    <td>Joao Pedro</td>
+                    <td>Chelsea</td>
+                    <td>15</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>Victor Gyokeres</td>
+                    <td>Arsenal</td>
+                    <td>14</td>
+                </tr>
+    </div>
+    <div class="top_assists premier_league">
+        <table border="1" cellspacing="0" cellpadding="5">
+            <p>Top Assists</p>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Assists</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bruno Fernandes</td>
+                    <td>Man Utd</td>
+                    <td>19</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>Rayan Cherki</td>
+                    <td>Man City</td>
+                    <td>11</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td>Jarrod Bowen</td>
+                    <td>West Ham</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>4</td>
+                    <td>Erling Haaland</td>
+                    <td>Man City</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>Enzoo Le fee</td>
+                    <td>Sunderland</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>Granit Xhaka</td>
+                    <td>Sunderland</td>
+                    <td>6</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>Hary Wilson</td>
+                    <td>Fulham</td>
+                    <td>6</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>James Garner</td>
+                    <td>Everton</td>
+                    <td>6</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>Jack Greelish</td>
+                    <td>Evertoon</td>
+                    <td>6</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>Leasandro Trossard</td>
+                    <td>Arsenal</td>
+                    <td>6</td>
+                </tr>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>Mohamed Salah</td>
+                    <td>Liverpool</td>
+                    <td>6</td>
+                </tr>
+        </table>
+    </div>
+    <div class="matches premier_league">
+        <p>Upcoming Matches</p>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Match</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Liverpool vs Chelsea</td>
+                    <td>Sat, 9 May</td>
+                    <td>12:30</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Fulham vs Bournemouth</td>
+                    <td>Sat, 9 May</td>
+                    <td>15:00</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Sunderland vs Man United</td>
+                    <td>Sat, 9 May</td>
+                    <td>15:00</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Brighton vs Wolves</td>
+                    <td>Sat, 9 May</td>
+                    <td>15:00</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Man City vs Brentford</td>
+                    <td>Sat, 9 May</td>
+                    <td>17:30</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Nottm Forest vs Newcastle</td>
+                    <td>Sun, 10 May</td>
+                    <td>14:00</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Palace vs Everton</td>
+                    <td>Sun, 10 May</td>
+                    <td>14:00</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Burnley vs Aston Villa</td>
+                    <td>Sun, 10 May</td>
+                    <td>14:00</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>West Ham vs Aresnal</td>
+                    <td>Sun, 10 May</td>
+                    <td>16:30</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Tottenham vs Leeds</td>
+                    <td>Mon, 11 May</td>
+                    <td>20:00</td>
+                </tr>
+        </table>
+        <a
+            href="https://www.bing.com/sportsdetails?q=premier%20league%20matches&sport=Soccer&scenario=League&TimezoneId=W.%20Central%20Africa%20Standard%20Time&IANATimezoneId=Africa/Lagos&ISOTimezoneKey=WAT&league=Soccer_EnglandPremierLeague&intent=Schedule&seasonyear=2025&segment=sports&isl2=true&fromhere=1065232050&">
+            View All Matches
+        </a>
+    </div>
+    <div class="news premier_league">
+        <p>Latest News</p>
+        <ul>
+            <li><a href="https://www.bbc.com/sport/football/65579920">Arsenal's Victor Gyokeres wins Premier League
+                    Player of the Month for April</a></li>
+        </ul>
+    </div>
+    <div class="videos premier_league">
+        <p>Latest Videos</p>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=Ztqj8n9mXoE">Erling Haaland's 25th Premier League Goal
+                    vs Newcastle</a></li>
+        </ul>
+    </div>
+    <div class="champions_league">
+        <p style="font-weight: bold; font-size: 18px;
+        color:red;">Champions League</p>
+        <p>Semi-Finals Leg 1 of 2</p>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td>PSG vs Bayern Munich</td>
+                <td>5:4</td>
+            </tr>
+            <tr>
+                <td>Atletico vs Arsenal</td>
+                <td>1:1</td>
+            </tr>
+        </table>
+        <p>Semi-Finals Leg 2 of 2</p>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td>Bayern Munich vs PSG</td>
+                <td>1:1</td>
+            </tr>
+            <tr>
+                <td>Arsenal vs Atletico</td>
+                <td>1:0</td>
+            </tr>
+        </table>
+        <p style="font-weight: bold; font-size: 18px; color:red;">Final</p>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td>PSG vs Arsenal</td>
+                <td>May 30</td>
+                <td>17:00</td>
+            </tr>
+        </table>
+        <a
+            href="https://www.bing.com/sportsdetails?q=champions%20league%20table&sport=Soccer&scenario=League&TimezoneId=W.%20Central%20Africa%20Standard%20Time&IANATimezoneId=Africa/Lagos&ISOTimezoneKey=WAT&league=Soccer_InternationalClubsUEFAChampionsLeague&intent=Generic&seasonyear=2025&segment=sports&isl2=true&fromhere=1065228180&">
+            More matches and stats
+        </a>
+    </div>
+</body>
+
+</html>
