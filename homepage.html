@@ -23,6 +23,8 @@
             border: none;
         }
 
+        p {}
+
         .table {
             width: fit-content;
             margin: 20px auto;
@@ -55,6 +57,44 @@
         tr:hover {
             background-color: #f1f7ff;
         }
+
+        div {
+            margin: 60px 20px;
+        }
+
+        .club_link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .club_card {
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .club_card:hover {
+            transform: translate(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1)
+        }
+
+        .club_logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .view_text {
+            font-size: 0.8rem;
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -67,7 +107,7 @@
     </div>
     <div class="premier_league table">
         <p>The premier league table</p>
-        <table border="1" cellspacing="0" cellpadding="5" style="display: inline-block;">
+        <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
                     <th>#</th>
@@ -511,14 +551,14 @@
         </table>
         <a
             href="https://www.bing.com/sportsdetails?q=premier%20league%20matches&sport=Soccer&scenario=League&TimezoneId=W.%20Central%20Africa%20Standard%20Time&IANATimezoneId=Africa/Lagos&ISOTimezoneKey=WAT&league=Soccer_EnglandPremierLeague&intent=Schedule&seasonyear=2025&segment=sports&isl2=true&fromhere=1065232050&">
-            View All Matches
+            View Latest Fixtures and results
         </a>
     </div>
     <div class="news premier_league">
         <p>Latest News</p>
         <ul>
             <li><a href="https://www.bbc.com/sport/football/65579920">Arsenal's Victor Gyokeres wins Premier League
-                    Player of the Month for April</a></li>
+                    Premier League News</a></li>
         </ul>
     </div>
     <div class="videos premier_league">
@@ -790,10 +830,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Goals</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Goals</th>
                 </tr>
             </thead>
             <tbody>
@@ -851,10 +891,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Assists</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Assists</th>
                 </tr>
             </thead>
             <tbody>
@@ -920,9 +960,9 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Match</td>
-                    <td>Date</td>
-                    <td>Time</td>
+                    <th>Match</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -1003,10 +1043,14 @@
     </div>
     <div class="news laliga">
         <p>Laliga News</p>
-        <a
-            href="https://www.bing.com/sportsdetails?q=laliga&sport=Soccer&scenario=League&TimezoneId=W.%20Central%20Africa%20Standard%20Time&IANATimezoneId=Africa/Lagos&ISOTimezoneKey=WAT&league=Soccer_SpainLaLiga&intent=Generic&seasonyear=2025&segment=sports&isl2=true&fromhere=1065231060&">
-            Everton Are In The Race For This La Liga Defender: Do They Really Need To Spend €25M?
-        </a>
+        <ul>
+            <li>
+                <a
+                    href="https://www.bing.com/sportsdetails?q=laliga&sport=Soccer&scenario=League&TimezoneId=W.%20Central%20Africa%20Standard%20Time&IANATimezoneId=Africa/Lagos&ISOTimezoneKey=WAT&league=Soccer_SpainLaLiga&intent=Generic&seasonyear=2025&segment=sports&isl2=true&fromhere=1065231060&">
+                    Laliga News
+                </a>
+            </li>
+        </ul>
     </div>
     <div class="seria_a table">
         <p>Seria A Table</p>
@@ -1233,10 +1277,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Goals</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Goals</th>
                 </tr>
             </thead>
             <tbody>
@@ -1286,10 +1330,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Assists</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Assists</th>
                 </tr>
             </thead>
             <tbody>
@@ -1339,9 +1383,9 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Match</td>
-                    <td>Date</td>
-                    <td>Time</td>
+                    <th>Match</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -1423,7 +1467,11 @@
     <div class="seria_a news">
         <p>Seria A news</p>
         <ul>
-            <li>h</li>
+            <li>
+                <a href="https://www.newsnow.co.uk/h/Sport/Football/Serie+A">
+                    Seria A News
+                </a>
+            </li>
         </ul>
     </div>
     <div class="bundesliga table">
@@ -1431,14 +1479,14 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>#</td>
-                    <td>Club</td>
-                    <td>MP</td>
-                    <td>W</td>
-                    <td>D</td>
-                    <td>L</td>
-                    <td>Pts</td>
-                    <td>GD</td>
+                    <th>#</th>
+                    <th>Club</th>
+                    <th>MP</th>
+                    <th>W</th>
+                    <th>D</th>
+                    <th>L</th>
+                    <th>Pts</th>
+                    <th>GD</th>
                 </tr>
             </thead>
             <tbody>
@@ -1675,10 +1723,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Goals</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Goals</th>
                 </tr>
             </thead>
             <tbody>
@@ -1783,10 +1831,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Assists</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Assists</th>
                 </tr>
             </thead>
             <tbody>
@@ -1932,9 +1980,9 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Match</td>
-                    <td>Date</td>
-                    <td>Time</td>
+                    <th>Match</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -2019,14 +2067,14 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>#</td>
-                    <td>Club</td>
-                    <td>MP</td>
-                    <td>W</td>
-                    <td>D</td>
-                    <td>L</td>
-                    <td>Pts</td>
-                    <td>GD</td>
+                    <th>#</th>
+                    <th>Club</th>
+                    <th>MP</th>
+                    <th>W</th>
+                    <th>D</th>
+                    <th>L</th>
+                    <th>Pts</th>
+                    <th>GD</th>
                 </tr>
             </thead>
             <tbody>
@@ -2252,10 +2300,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Goals</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Goals</th>
                 </tr>
             </thead>
             <tbody>
@@ -2345,10 +2393,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Assists</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Assists</th>
                 </tr>
             </thead>
             <tbody>
@@ -2455,9 +2503,9 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Match</td>
-                    <td>Date</td>
-                    <td>Time</td>
+                    <th>Match</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -2525,19 +2573,29 @@
             </tbody>
         </table>
     </div>
+    <div class="saudi_pro_league news">
+        <p>Saudi Pro League News</p>
+        <ul>
+            <li>
+                <a href="https://www.spl.com.sa/en">
+                    Saudi Pro League News
+                </a>
+            </li>
+        </ul>
+    </div>
     <div class="ligue_1 table">
         <p>Ligue 1 Table</p>
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>#</td>
-                    <td>Club</td>
-                    <td>MP</td>
-                    <td>W</td>
-                    <td>D</td>
-                    <td>L</td>
-                    <td>Pts</td>
-                    <td>GD</td>
+                    <th>#</th>
+                    <th>Club</th>
+                    <th>MP</th>
+                    <th>W</th>
+                    <th>D</th>
+                    <th>L</th>
+                    <th>Pts</th>
+                    <th>GD</th>
                 </tr>
             </thead>
             <tbody>
@@ -2763,10 +2821,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Goals</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Goals</th>
                 </tr>
             </thead>
             <tbody>
@@ -2897,10 +2955,10 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Rank</td>
-                    <td>Player</td>
-                    <td>Club</td>
-                    <td>Assists</td>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Club</th>
+                    <th>Assists</th>
                 </tr>
             </thead>
             <tbody>
@@ -2998,9 +3056,9 @@
         <table border="1" cellspacing="0" cellpadding="5">
             <thead>
                 <tr>
-                    <td>Match</td>
-                    <td>Date</td>
-                    <td>Time</td>
+                    <th>Match</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -3068,6 +3126,29 @@
             </tbody>
         </table>
     </div>
+    <div class="ligue_1 news">
+        <p>Ligue 1 news</p>
+        <ul>
+            <li>
+                <a href="https://www.newsnow.co.uk/h/Sport/Football/Ligue+1">
+                    Ligue 1 News
+                </a>
+            </li>
+        </ul>
+    </div>
+    <img scr="bag.jpg">
+    <div class="club premier_league ">
+        <a class="club_link" href="clubs/arsenal.html">
+            <div class="club_card arsenal">
+                <div class="club_image">
+                    <img src="logos/bag.jpg" class="club_logo">
+                </div>
+                <h3 class="club_name">Arsenal</h3>
+                <p class="view_text">View club stats</p>
+            </div>
+        </a>
+    </div>
+
 </body>
 
 </html>
