@@ -96,6 +96,55 @@
             border-left: 5px solid #3b82f6;
             background: linear-gradient(to right, #1e293b, #1d4ed822);
         }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            color: #f8fafc;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .player_table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            font-size: 0.95rem;
+        }
+
+        .player_table th {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 2px solid #334155;
+        }
+
+        .player_table td {
+            padding: 16px 20px;
+            color: #e2e8f0;
+            border-bottom: 1px solid #334155;
+        }
+
+        .player_table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .player_table tbody tr:hover {
+            background-color: #243249;
+            transition: background-color 0.2s ease;
+        }
+
+        .player_name {
+            font-weight: 600;
+            color: #ffffff;
+        }
     </style>
 </head>
 
@@ -136,6 +185,179 @@
         </main>
     </div>
     <p>First in Premier League</p>
+    <div class="player_table_div">
+        <h2>Players</h2>
+        <table class="player_table">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Position</th>
+                    <th>Jersey #</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="player_name">Christian Norgaard</td>
+                    <td>Mildfielder</td>
+                    <td class="jersey_nu">16</td>
+                    <td>32</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Leandro Trossard</td>
+                    <td>Mildfielder</td>
+                    <td class="jersey_nu">19</td>
+                    <td>31</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Martin Ogegaard</td>
+                    <td>Mildfielder</td>
+                    <td class="jersey_nu">8</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Mikel Merlino</td>
+                    <td>Mildfielder</td>
+                    <td class="jersey_nu">23</td>
+                    <td>29</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Gabriel Jesus</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">9</td>
+                    <td>29</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Viktor Gyokeres</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">14</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Declan Rice</td>
+                    <td>Mildfeilder</td>
+                    <td class="jersey_nu">41</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Reiss Nelson</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">24</td>
+                    <td>26</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Kai Havertz</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">29</td>
+                    <td>26</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Ben White</td>
+                    <td>Defender</td>
+                    <td class="jersey_nu">4</td>
+                    <td>28</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Jurrien Timber</td>
+                    <td>Defender</td>
+                    <td class="jersey_nu">12</td>
+                    <td>24</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Eberechi Eze</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">10</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Fabio Vieira</td>
+                    <td>Mildfielder</td>
+                    <td class="jersey_nu">21</td>
+                    <td>25</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Noni Madueke</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">20</td>
+                    <td>24</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Bukayo Saka</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">7</td>
+                    <td>24</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">William Saliba</td>
+                    <td>Defender</td>
+                    <td class="jersey_nu">2</td>
+                    <td>25</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Gabriel Martinelli</td>
+                    <td>Forward</td>
+                    <td class="jersey_nu">11</td>
+                    <td>24</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Lewis-Skelly</td>
+                    <td>Mildfeilder</td>
+                    <td class="jersey_nu">49</td>
+                    <td>19</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">Joshoa Nicholas</td>
+                    <td>Defender</td>
+                    <td class="jersey_nu">48</td>
+                    <td>19</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="player_name">David Raya</td>
+                    <td>Goalkeeper</td>
+                    <td class="jersey_nu">1</td>
+                    <td>30</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
