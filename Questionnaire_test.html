@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Questioneer test</title>
+    <style>
+        /* #quiz {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #66ebf0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(192, 222, 60, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        #question {
+            margin-bottom: 20px;
+        }
+
+        #options {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: rgb((227, 238, 10), 245, 161);
+            color: #131313;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8f8d8d;
+        } */
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+        }
+
+        .quiz_container {
+            max-width: 550px;
+            background: #1e293b;
+            margin: 50px auto;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .quiz_progress {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .question_box h2 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .options_grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .option_btn {
+            background: #243249;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option_btn:hover {
+            background: #2e3f5a;
+            border-color: #3b82f6;
+        }
+
+        .option_btn.selected {
+            background: #3b82f6;
+            border-color: #60a5fa;
+            color: white;
+            font-weight: 600;
+        }
+
+        .navigation_box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav_btn {
+            background: #334155;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .nav_btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .submit_btn {
+            background: #22c55e;
+        }
+
+        .submit_btn:hover {
+            background: #16a34a;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .results_box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1e293b;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .score_display {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin: 15px 0;
+        }
+
+        .retry_btn {
+            background: transparent;
+            border: 2px solid #334155;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--
+    <div id="quiz">
+        <h1>Interactive Quiz</h1>
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="submit"></button>
+    </div>
+    -->
+
+    <div class="quiz_container">
+        <div class="quiz_progress">Question<span id="current_number">1</span> of 3</div>
+        <div class="question_box">
+            <h2 id="question_text">Loading Question...</h2>
+        </div>
+
+        <div class="options_grid">
+            <button class="option_btn" onclick="selectOption(0)">Option 1</button>
+            <button class="option_btn" onclick="selectOption(1)">Option 2</button>
+            <button class="option_btn" onclick="selectOption(2)">Option 3</button>
+            <button class="option_btn" onclick="selectOption(3)">Option 3</button>
+        </div>
+
+        <div class="navigation_box">
+            <button id="prev_btn" class="nav_btn" onclick="goPrevious()" disabled>Previos</button>
+            <button id="next_btn" class="nav_btn" onclick="goNext()">Next</button>
+            <button id="submit_btn" class="nav_btn" submit_btn hide onclick="showResult()">Submit</button>
+        </div>
+
+        <div class="results_box" id="results_screen">
+            <h2>Test Completed</h2>
+            <p>Your Fan Loyalty Score: </p>
+            <div class="score_display"><span id="score_value">0</span>%</div>
+            <p id="loyalty_status">Calculating Status...</p>
+            <button class="retry_btn" onclick="resetQuiz()">Try again</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    /*  const quizData = [
+          {
+              question: "What is the capital of France",
+              options: ["paris", "Madrid", "Rome", "Berlin"],
+              answer: "paris"
+          },
+          {
+              question: "What is the lagest planet in the solar system",
+              options: ["Jupiter", "Saturn", "Mars", "Earth"],
+              answer: "Jupiter"
+          },
+      ];
+ 
+      const questionElement = document.getElementById("question");
+      const optionsElement = document.getElementById("options");
+      const submitButton = document.getElementById("submit")
+ 
+      let currentQuestion = 0;
+      let score = 0;
+ 
+      function showQuestion() {
+          const question = quizData[currentQuestion];
+          questionElement.innerText = question.question;
+ 
+          optionsElement.innerHTML = "";
+          question.options.forEach(option => {
+              const button = document.createElement("button");
+              button.innerText = option;
+              optionsElement.appendChild(button);
+              button.addEventListener("click", selectAnswer);
+          });
+      }
+ 
+      function selectAnswer(e) {
+          const selectButton = e.target;
+          const answer = quizData[currentQuestion].answer;
+ 
+          if (selectedButton.innerText === answer) {
+              score++;
+          }
+ 
+          currentQuestion++;
+ 
+          if (currentQuestion < quizData.length) {
+              showQuestion();
+          } else {
+              showResult()
+          }
+      }
+ 
+      function showResult() {
+          quiz.innerHTML = `
+              <h1>Quiz Completed</h1>
+              <p>Your Score: ${score}/${quizData.length}</p>
+          `;
+      }
+ 
+      showQuestion(); */
+
+    const quizData = [
+        {
+            question: "How many matches of your club do you watch a season"
+            options: ["Every single game live", "Most games if I'm free", "Just the highlight", "only the big final matches"]
+            points: [30, 20, 10, 5]
+        },
+        {
+            question: "What happens to your mood when your club loses a derby?",
+            options: ["Ruins my entire week", "sad for a day", "slightly annoyed for an hour", "doesn't affect me at all"]
+            points: [30, 20, 10, 0]
+        },
+        {
+            question: "Do you own any official kits or merchandise",
+            options: ["Yes multiple kits", "I have one or two current jerseys", "Just a scarf or cap", "No merchandise at all"],
+            points: [40, 30, 15, 0]
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userAnswers = new Array(quizData.length).fill(null);
+
+    function loadQuestion() {
+        const currentQuiz = quizData[currentQuestionIndex];
+
+        document.getElementById("current_number").innerText = currentQuestionIndex + 1;
+        document.getElementById("question_text").innerText = currentQuiz.question;
+
+        const optionButtons = document.querySelectorAll(".option_btn");
+        optionButtons.forEach((btn, index) => {
+            btn.innerText = currentQuiz.options[index];
+
+            if (userAnswers[currentQuestionIndex] === index) {
+                btn.classList.add("selected");
+            } else {
+                btn.classList.remove("selected;")
+            }
+        });
+
+        document.getElementById("prev_btn").disabled = currentQuestionIndex === 0;
+
+        if (currentQuestionIndex === quizData.length - 1) {
+            document.getElementById("next_btn").classList.add("hidden");
+            document.getElementById("submit_btn").classList.remove("hidden");
+        } else {
+            document.getElementById("next_btn").classListremove("hidden");
+            document.getElemenyById("submit_btn").classList.add("hidden");
+        }
+    }
+
+    function selectOption(index) {
+        userAnswers[currentQuestionIndex] = index;
+        loadQuestion();
+    }
+
+    function goNext() {
+        if (currentQuestionIndex < quizData.length - 1) {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+    }
+
+    function goPrevios() {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            loadQuestion();
+        }
+    }
+
+    function showResults() {
+        let totalScore = 0;
+        let maxPossibleScore = 0;
+
+        quizData.forEach((q, i) => {
+            const selectedIndex = userAnswers[i];
+            if (selectedIndex !== null) {
+                totalScore += q.points[selectedIndex];
+            }
+
+            maxPossibleScore += Math.max(...q.points);
+        });
+
+        const finalPercentage = Math.round((totalScore / maxPossibleScore) * 100);
+
+        document.getElementById("score_value").innerText = finalPercentage;
+
+        let statusText = "";
+        if (finalPercentage >= 85) statusText = "Die Hard Ultra Fan 🏆";
+        else if (finalPercentage >= 50) statusText = "Loyal Supporter ⚽";
+        else statusText = "casual Viewer 👀";
+
+        document.getElementById("loyalty_status").innerText = statusText;
+        document.getElementById("results_screen").classList.remove("hidden");
+    }
+
+    function resetQuiz() {
+        currentQuestionIndex = 0;
+        userAnswers.fill(null);
+        document.getElementById("results_screen").classList.add("hidden");
+        loadQuestion();
+    }
+
+    loadQuestion();
+</script>
+</body>
+
+</html>
