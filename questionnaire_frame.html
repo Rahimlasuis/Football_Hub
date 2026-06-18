@@ -3,6 +3,78 @@
 
 <head></head>
 
-<body></body>
+<body>
+    <div class="quiz_container">
+        <div class="quiz_progress">
+            Question <span id="current_number">1</span>
+        </div>
+
+        <div class="question_box">
+            <h2 id="question_text">Question will load here</h2>
+        </div>
+
+        <div id="options_container">
+
+        </div>
+
+        <div class="navigation_box">
+            <button id="prev_btn">Previous</button>
+            <button id="next_btn">Next</button>
+            <button id="submit_btn" style="display: none;">Submit</button>
+        </div>
+    </div>
+
+
+    <script>
+        const quizData = [
+            {
+                question: "How many of your club matches do you watch in a season",
+                options: ["Every Single game live", "Most games if I'm free", "Just the highlights", "only the big finale matches"],
+                points: [30, 20, 10, 5]
+            },
+            {
+                question: "What happens to your mood when your club loses a derby",
+                options: ["Ruins my entire week", "sad for a day", "slightly annoyed for an hour", "Doesn't affect me at all"],
+                points: [30, 20, 10, 0]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        function loadQuestion() {
+            const currentQuiz = quizData[currentQuestionIndex];
+
+            document.getElementById("current_number").innerText = currentQuestionIndex + 1;
+
+            document.getElementById("question_text").innerText = currentQuiz.question;
+
+            const optionsContainer = document.getElementById("options_container");
+            optionsContainer.innerHTML = "";
+
+            currentQuiz.options.forEach((optionText, index) => {
+                const button = document.createElement("button");
+                button.innerText = optionText;
+                button.className = "option_btn";
+
+                if (userAnswers[currentQuestionIndex] === index) {
+                    button.style.backgroundColor = "lightblue";
+                }
+
+                button.onclick = function () {
+                    selectOption(index);
+                };
+
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectOption(index) {
+            userAnswers[currentQuestionIndex] = index;
+            loadQuestion();
+        }
+
+    </script>
+</body>
 
 </html>
