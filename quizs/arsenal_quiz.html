@@ -167,54 +167,6 @@
 
 
     <script>
-        /* const quizData = [
-             {
-                 question: "How many of your club matches do you watch in a season",
-                 options: ["Every Single game live", "Most games if I'm free", "Just the highlights", "only the big finale matches"],
-                 points: [30, 20, 10, 5]
-             },
-             {
-                 question: "What happens to your mood when your club loses a derby",
-                 options: ["Ruins my entire week", "sad for a day", "slightly annoyed for an hour", "Doesn't affect me at all"],
-                 points: [30, 20, 10, 0]
-             }
-         ];
- 
-         let currentQuestionIndex = 0;
-         let userAnswers = new Array(quizData.length).fill(null);
- 
-         function loadQuestion() {
-             const currentQuiz = quizData[currentQuestionIndex];
- 
-             document.getElementById("current_number").innerText = currentQuestionIndex + 1;
- 
-             document.getElementById("question_text").innerText = currentQuiz.question;
- 
-             const optionsContainer = document.getElementById("options_container");
-             optionsContainer.innerHTML = "";
- 
-             currentQuiz.options.forEach((optionText, index) => {
-                 const button = document.createElement("button");
-                 button.innerText = optionText;
-                 button.className = "option_btn";
- 
-                 if (userAnswers[currentQuestionIndex] === index) {
-                     button.style.backgroundColor = "lightblue";
-                 }
- 
-                 button.onclick = function () {
-                     selectOption(index);
-                 };
- 
-                 optionsContainer.appendChild(button);
-             });
-         }
- 
-         function selectOption(index) {
-             userAnswers[currentQuestionIndex] = index;
-             loadQuestion();
-         } */
-
         const quizData = [
             {
                 question: "How many matches of your club do you watch a season?",
@@ -287,24 +239,6 @@
             }
         }
 
-        /* function showResults() {
-             let totalScore = 0;
-             let maxPossibleScore = 0;
- 
-             quizData.forEach((questionObj, index) => {
-                 const selectedOptionIndex = userAnswers[index];
- 
-                 if (selectedOptionIndex !== null) {
-                     totalScore += questionObj.points[selectedOptionIndex];
-                 }
- 
-                 maxPossibleScore += Math.max(...questionObj.points);
-             });
- 
-             const finalPercentage = Math.round((totalScore / maxPossibleScore) * 100);
- 
-             alert("Quiz finished. Your score is " + finalPercentage + "%");
-         }; */
 
         function showResults() {
             let totalScore = 0;
