@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #0f172a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f8fafc;
+            padding: 20px;
+        }
+
+        .quiz_container {
+            max-width: 550px;
+            background: #1e293b;
+            margin: 60px auto;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .quiz_progress {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .question_box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        #option_container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .option_btn {
+            background: #243249;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 1rem;
+            box-sizing: border-box;
+            display: block;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            width: 400px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 10px;
+        }
+
+        .option_btn:hover {
+            background: #a4b6d4;
+            border-color: #3b82f6;
+            transform: translate(4px);
+        }
+
+        .navigation_box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navigation_box button {
+            background-color: #334155;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .navigation_box button:hover {
+            background: #475569;
+        }
+
+        #submit_btn {
+            background-color: #22c55e;
+        }
+
+        #submit_btn:hover {
+            background-color: #16a34a;
+        }
+
+        #results_screen {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #results_screen p {
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+
+        #score_value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin: 15px 0;
+        }
+
+        #loyalty_status {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .try_again {
+            background: transparent;
+            border: 2px solid #334155;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz_container">
+        <div class="quiz_progress">
+            Question <span id="current_number">1</span>
+        </div>
+
+        <div class="question_box">
+            <h2 id="question_text">Question will load here</h2>
+        </div>
+
+        <div id="options_container">
+
+        </div>
+
+        <div class="navigation_box">
+            <button id="prev_btn" onclick="goPrevious()">Previous</button>
+            <button id="next_btn" onclick="goNext()">Next</button>
+            <button id="submit_btn" onclick="showResults()" display: none;">Submit</button>
+        </div>
+    </div>
+
+    <div id="results_screen">
+        <h2>Test Completed</h2>
+        <p>Your Fan Loyalty Score: </p>
+        <div id="score_value">0%</div>
+        <p id="loyalty_status">Calculating Status...</p>
+        <button onclick="resetQuiz()" class="try_again">Try Again</button>
+    </div>
+
+
+    <script>
+        const quizData = [
+            {
+                question: "How many matches of your club do you watch a season?",
+                options: ["Every Single game live", "Most games if I'm free", "Just the highlights", "Only the big final matches"],
+                points: [30, 20, 10, 5]
+            },
+            {
+                question: "What happens to your mood when your club loses a derby",
+                options: ["Ruins my entire week", "Sad for a day", "Moody for an hour", "Doesn't affect me at all"],
+                points: [30, 20, 10, 0]
+            },
+            {
+                question: "When was Bayern Munich founded",
+                options: ["1800", "1801", "1900", "1902"],
+                points: [0, 0, 30, 0]
+            },
+            {
+                question: "Bayern Munich Home Stadium",
+                options: ["Old Traford", "Allianz Arena", "San Siro", "Emirates"],
+                points: [0, 20, 0, 0]
+            },
+            {
+                question: "How Many UEFA Champions League does Bayern Munich own",
+                options: ["Seven", "Six", "Two", "Three"],
+                points: [0, 20, 0, 0]
+            },
+            {
+                question: "Which League does Bayern Munich play for",
+                options: ["Laliga", "Bundesliga", "Seria A", "Ligue 1"],
+                points: [0, 20, 0, 0]
+            },
+            {
+                question: "Who was their biggest win against",
+                options: ["Barcelona", "Real Madrid", "Dortmund", "Napoli"],
+                points: [0, 0, 30, 0]
+            },
+            {
+                question: "What was the score line against the club in the previous question",
+                options: ["10-0", "11-0", "10-1", "11-1"],
+                points: [0, 5, 0, 40]
+            },
+            {
+                question: "Who is Bayern Munich all time greatest scorer",
+                options: ["Thomas Muller", "Gerd Muller", "Philipp Lahm", "Pep Guardiolla"],
+                points: [20, 30, 10, 0]
+            },
+            {
+                question: "Which of these players never played for Bayern Munich",
+                options: ["Matthaus Lothar", "Phillipp Lahm", "Gerd Muller", "Franck Ribery"],
+                points: [0, 30, 0, 0]
+            }
+
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        function loadQuestion() {
+            const currentQuiz = quizData[currentQuestionIndex];
+            document.getElementById("current_number").innerText = currentQuestionIndex + 1;
+            document.getElementById("question_text").innerText = currentQuiz.question;
+
+            const optionsContainer = document.getElementById("options_container");
+            optionsContainer.innerHTML = "";
+
+            currentQuiz.options.forEach((optionText, index) => {
+                const button = document.createElement("button");
+                button.innerText = optionText;
+                button.className = "option_btn";
+
+                if (userAnswers[currentQuestionIndex] === index) {
+                    button.style.backgroundColor = "#3b82f6";
+                    button.style.borderColor = "#60a5fa";
+                    button.style.fontWeight = "600";
+                }
+
+                button.onclick = function () {
+                    selectOption(index);
+                };
+
+                optionsContainer.appendChild(button);
+            });
+
+            if (currentQuestionIndex === quizData.length - 1) {
+                document.getElementById("next_btn").style.display = "none";
+                document.getElementById("submit_btn").style.display = "inline-block";
+            } else {
+                document.getElementById("next_btn").style.display = "inline-block";
+                document.getElementById("submit_btn").style.display = "none";
+            }
+        }
+
+        function selectOption(index) {
+            userAnswers[currentQuestionIndex] = index;
+            loadQuestion();
+        }
+
+        loadQuestion();
+
+        function goNext() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            }
+        }
+
+        function goPrevious() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+
+        function showResults() {
+            let totalScore = 0;
+            let maxPossibleScore = 0;
+
+            quizData.forEach((questionObj, index) => {
+                const selectedOptionIndex = userAnswers[index];
+                if (selectedOptionIndex !== null) {
+                    totalScore += questionObj.points[selectedOptionIndex];
+                }
+                maxPossibleScore += Math.max(...questionObj.points);
+            });
+
+            const finalPercentage = Math.round((totalScore / maxPossibleScore) * 100);
+
+            document.getElementById("score_value").innerText = finalPercentage + "%";
+
+            let statusText = "";
+            if (finalPercentage >= 85) {
+                statusText = "Die Hard Ultra Fan"
+            } else if (finalPercentage >= 50) {
+                statusText = "Loyal Supporter"
+            } else {
+                statusText = "Casual viewer"
+            }
+
+            document.getElementById("loyalty_status").innerText = statusText;
+
+            document.querySelector(".quiz_progress").style.display = "none";
+            document.querySelector(".question_box").style.display = "none";
+            document.getElementById("options_container").style.display = "none";
+            document.querySelector(".navigation_box").style.display = "none";
+
+            document.getElementById("results_screen").style.display = "block"
+        }
+
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers.fill(null);
+
+            document.querySelector(".quiz_progress").style.display = "block";
+            document.querySelector(".question_box").style.display = "block";
+            document.getElementById("options_container").style.display = "block";
+            document.querySelector(".navigation_box").style.display = "block";
+
+            document.getElementById("results_screen").style.display = "none";
+
+            loadQuestion();
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .full_container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 4px;
+            background: #334155;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #1e293b;
+            border: 4px solid #3b82f6;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .item.right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 25px;
+            background: #1e293b;
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid #2e3f5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin-bottom: 8px;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .content p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media screen and (max-width: 760px) {
+            .line {
+                left: 31px
+            }
+
+            .item {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 25px;
+            }
+
+            .item.left,
+            .ite,
+            .right {
+                left: 0;
+                text-align: left;
+            }
+
+            .item::after {
+                left: 23px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full_container">
+        <h1 class="title"> Our Club's Golden History</h1>
+
+        <div class="container">
+            <div class="line"></div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1892</span>
+                    <h3>The Genesis</h3>
+                    <p>Our Legendary club was oficially founded. A small group of local foorball players gathered to
+                        become a global football club</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1965</span>
+                    <h3>The First Golden Era</h3>
+                    <p>The club claimed it first top-flight league championship title, setting a new standard of
+                        excellence for generation to follow</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">2005</span>
+                    <h3>European Glory</h3>
+                    <p>An Unforgettable night in club history. Against all odds, the team fought back to lift the
+                        ultimate European Championship trophy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const items = document.querySelectorAll(".item");
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const timelineObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            items.forEach(item => {
+                timelineObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>
