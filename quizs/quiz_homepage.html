@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .quiz_container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .quiz_title {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-family: sans-serif;
+        }
+
+        .club_card_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 24px;
+        }
+
+        .club_card_link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .club_card {
+            width: 200px;
+            background: #1e293b;
+            border: 1px solid #2e3f5a;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+        .club_card_link:hover .club_card {
+            transform: translate(-6px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .club_image {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            background: #151f32;
+
+        }
+
+        .club_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .club_card_link:hover .club_img {
+            transform: scale(1.08);
+        }
+
+        .club_info {
+            padding: 20px;
+            font-family: sans-serif;
+        }
+
+        .club_info h3 {
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+        }
+
+        .club_info p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+        }
+
+        .play {
+            display: inline-block;
+            color: #3b82f6;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .club-card-link:hover .play {
+            color: #60a5fa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz_container">
+        <h2 class="quiz_title">Select your Club quiz</h2>
+        <div class="club_card_grid">
+            <a href="quizs/arsenal_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/OSB.VXxjrqWZWwmw2Ju4T8AJJA--.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Arsenal FC</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/city_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/mancitylogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Manchester City</h3>
+                        <p>Test You Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/united_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/manulogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Manchester United</h3>
+                        <p>Test You Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/liverpool.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/liverpoollogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Liverpool</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/chelsea.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/chelsealogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Chelsea</h3>
+                        <p>Test your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/barcelona_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/barcalogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Barcelona</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/madrid_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/madridlogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Real Madrid</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/atletico_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/atleticologo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Atletico Madrid</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/ac_milian_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/acmilanlogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>AC Milan</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/alnassr_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/alnassrlogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Al Nassr</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/bayernmunich_quiz" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/bayernminichlogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Bayern Munich</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/dortmund_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/dortmundlogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Dortmund</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/intermilan_quiz.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/interlogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Inter Milano</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+            <a href="quizs/juventus.html" class="club_card_link">
+                <div class="club_card">
+                    <div class="club_image">
+                        <img src="logos/juventuslogo.png" class="club_img">
+                    </div>
+                    <div class="club_info">
+                        <h3>Juventus</h3>
+                        <p>Test Your Fanbase Knowledge</p>
+                        <span class="play">Play Quiz</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
