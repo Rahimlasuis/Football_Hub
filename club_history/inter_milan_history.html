@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .full_container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 4px;
+            background: #334155;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #1e293b;
+            border: 4px solid #3b82f6;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .item.right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 25px;
+            background: #1e293b;
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid #2e3f5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin-bottom: 8px;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .content p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media screen and (max-width: 760px) {
+            .line {
+                left: 31px
+            }
+
+            .item {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 25px;
+            }
+
+            .item.left,
+            .item.right {
+                left: 0;
+                text-align: left;
+            }
+
+            .item::after {
+                left: 23px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full_container">
+        <h1 class="title"> Our Club's Golden History</h1>
+
+        <div class="container">
+            <div class="line"></div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1908</span>
+                    <h3>The Genesis</h3>
+                    <p>Inter Milan was founded on March 9, 1908, by a breakaway group of 44 members from the Milan
+                        Cricket and Football Club (now AC Milan). The founders wated o welcome forign players which
+                        earned them the nickname 'brother of the world'</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1910</span>
+                    <h3>Early years</h3>
+                    <p>Inter's origins lie in a split from AC Milan due to a ban on signing foreign players. The new
+                        club adopted the name Internazionale to reflect its open, global philosophy. Success was swift,
+                        as they won their first cup (Italian championship) in 1910.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1930s</span>
+                    <h3>Giuseppe Meazza</h3>
+                    <p>During the 1930s, the team was propelled by club legend Giuseppe Meazza, who scored 284 goals and
+                        remains the club's all-time leading scorer.</p>
+                </div>
+            </div>
+            <div class="item right">
+                <div class="content">
+                    <span class="year">----</span>
+                    <h3>San Siro</h3>
+                    <p>The club's iconic home ground, the San Siro Stadium, was built by AC Milan in 1926 and has been
+                        shared by both Milan clubs since 1947. It was later officially renamed the Stadio Giuseppe
+                        Meazza</p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1960s</span>
+                    <h3>The Golden Age</h3>
+                    <p>In the 1960s, under visionary manager Helenio Herrera, Inter experienced its first true golden
+                        age, known as La Grande Inter. Herrera revolutionized tactics with his catenaccio (door-bolt)
+                        defensive system. This era brought three Serie A titles, two consecutive European Cups (1964 and
+                        1965), and two Intercontinental Cups</p>
+                </div>
+            </div>
+            <div class="item right">
+                <div class="content">
+                    <span class="year">2006-10</span>
+                    <h3>The Golden Era</h3>
+                    <p>After decades of moderate success and occasional domestic struggles in the late 20th century, the
+                        club enjoyed a massive resurgence in the late 2000s, winning five consecutive Serie A titles
+                        between 2006 and 2010.</p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">2010</span>
+                    <h3>The 2010 Treble</h3>
+                    <p>The peak of this era came under manager José Mourinho, when Inter became the first—and
+                        only—Italian club to achieve the historic treble of the Serie A title, Coppa Italia, and
+                        Champions League in a single season</p>
+                </div>
+            </div>
+            <div class="item right">
+                <div class="content">
+                    <span class="year">2020s</span>
+                    <h3>Modern Success</h3>
+                    <p>After a period of transition in the 2010s, the club re-established itself as a dominant force in
+                        Italian football, winning additional league titles and multiple Coppa Italia and Supercoppa
+                        Italiana trophies. </p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">Date</span>
+                    <h3>Inter Milano</h3>
+                    <p>Today, Inter stands as one of the most successful clubs in Italian history, retaining its unique
+                        international roots and maintaining one of the fiercest rivalries in world football—the Derby
+                        della Madonnina—against AC Milan</p>
+                </div>
+            </div>
+            <div class="item right">
+                <div class="content">
+                    <span class="year"></span>
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year"></span>
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="item right">
+                <div class="content">
+                    <span class="year"></span>
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year"></span>
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const items = document.querySelectorAll(".item");
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const timelineObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            items.forEach(item => {
+                timelineObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>

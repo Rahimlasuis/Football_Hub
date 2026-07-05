@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .full_container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 4px;
+            background: #334155;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #1e293b;
+            border: 4px solid #3b82f6;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .item.right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 25px;
+            background: #1e293b;
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid #2e3f5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin-bottom: 8px;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .content p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media screen and (max-width: 760px) {
+            .line {
+                left: 31px
+            }
+
+            .item {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 25px;
+            }
+
+            .item.left,
+            .item.right {
+                left: 0;
+                text-align: left;
+            }
+
+            .item::after {
+                left: 23px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full_container">
+        <h1 class="title"> Our Club's Golden History</h1>
+
+        <div class="container">
+            <div class="line"></div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1892</span>
+                    <h3>The Genesis</h3>
+                    <p>Our Legendary club was founded in 1892 by John Houlding following a boardroom
+                        dispute at Everton. Renowned for their passionate fanbase and "You'll Never Walk Alone" anthem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1953/54</span>
+                    <h3>Relegation</h3>
+                    <p>After 49 uninterrupted years in the top division,
+                        the club was relegated to the Second Division after a disappointing season.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1962</span>
+                    <h3>Promotion</h3>
+                    <p>Liverpool got promoted back to the top division</p>
+                </div>
+            </div>
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1964</span>
+                    <h3>Victory</h3>
+                    <p>Liverpool won the top league after 17 years.</p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1965</span>
+                    <h3>FA Cup</h3>
+                    <p>Liverpool won its very first FA Cup</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1983</span>
+                    <h3>Paisley/Joe Fagan</h3>
+                    <p>Paisley retired in 1983 and was replaced by his assistant, Joe Fagan.[16] Liverpool won the
+                        League, League Cup and European Cup in Fagan's first season, becoming the first English side to
+                        win three trophies in a season</p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1985</span>
+                    <h3>The Fight</h3>
+                    <p>Just before a match against juventus conflict arised among fans and 39 players were banned
+                        causing the English club 7 years ban and convictions of some fourteen liverpool fan for
+                        manslaughter</p>
+                </div>
+            </div>
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1988/89</span>
+                    <h3>The thin Margin</h3>
+                    <p>Liverpool was involved in the closest finish to a league season during the 1988–89 season,
+                        finishing equal with Arsenal on both points and goal difference, but lost the title on total
+                        goals scored when Arsenal scored the final goal in the last minute of the season</p>
+                </div>
+            </div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">2024</span>
+                    <h3>Coaches</h3>
+                    <p>Arne Slot was announced as Klopp's successor in May 2024,[59] and the club won a record-equalling
+                        twentieth top-flight league title in his first season in charge.[60] After a fifth place finish
+                        in the league the following season, Slot was sacked as head coach on 30 May 2026,[61] and was
+                        replaced by Andoni Iraola five days later.</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const items = document.querySelectorAll(".item");
+
+                const observerOptions = {
+                    root: null,
+                    threshold: 0.15
+                };
+
+                const timelineObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                items.forEach(item => {
+                    timelineObserver.observe(item);
+                });
+            });
+        </script>
+</body>
+
+</html>
