@@ -133,6 +133,75 @@
             margin-top: 25px;
             cursor: pointer;
         }
+
+        .rewards_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .reward_card {
+            background: #151f32;
+            border: 2px solid #243249;
+            border-radius: 12px;
+            padding: 20px 10px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .reward_icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .reward_card h4 {
+            font-size: 1rem;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+        }
+
+        .reward_status {
+            font-size: 0.75rem;
+            margin: 0;
+        }
+
+        .reward_card.locked {
+            opacity: 0.4;
+            filter: grayscale(100%);
+            border-style: dashed;
+            color: #64748b;
+        }
+
+        .reward_card.unlocked {
+            opacity: 1;
+            filter: grayscale(0%);
+            background: #1e293b;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+            color: #94a3b8;
+        }
+
+        .reward_card.unlocked h4 {
+            color: #3b82f6;
+        }
+
+        @keyframes unlockGlow {
+            0% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+            }
+        }
     </style>
 </head>
 
@@ -163,6 +232,30 @@
         <div id="score_value">0%</div>
         <p id="loyalty_status">Calculating Status...</p>
         <button onclick="resetQuiz()" class="try_again">Try Again</button>
+
+        <div class="reward_room_box">
+            <h3>You Unlocked Rewards Locker</h3>
+
+            <div class="rewards_grid">
+                <div class="reward_card locked" id="reward_bronze">
+                    <div class="reward_icon">🥉</div>
+                    <h4>Club Casual Badge</h4>
+                    <p class="reward_status">Requires 10% score</p>
+                </div>
+
+                <div class="reward_card locked" id="reward_silver">
+                    <div class="reward_icon">🥈</div>
+                    <h4>Loyal Supporter Avatar</h4>
+                    <p class="reward_status">Requires 50% score</p>
+                </div>
+
+                <div class="reward_card locked" id="reward_gold">
+                    <div class="reward_icon">👑</div>
+                    <h4>Die Hard Ultra Wallpaper</h4>
+                    <p class="reward_status">Requires 85% score</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -303,6 +396,36 @@
             document.querySelector(".navigation_box").style.display = "none";
 
             document.getElementById("results_screen").style.display = "block"
+
+            const cards = ["reward_bronze", "reward_silver", "reward_gold"];
+            cards.forEach(id => {
+                const cardEl = document.getElementById(id);
+                if (cardEl) {
+                    cardEl.classList.remove("unlocked");
+                    cardEl.classList.add("locked")
+                }
+            });
+
+            if (finalPercentage >= 0) {
+                const bronzeCard = document.getElementById("reward_bronze");
+                bronzeCard.classList.remove("locked");
+                bronzeCard.classList.add("unlocked");
+                bronzeCard.querySelector(".reward_status").innerText = "Unlocked. Yay";
+            }
+
+            if (finalPercentage >= 50) {
+                const silverCard = document.getElementById("reward_silver");
+                silverCard.classList.remove("locked");
+                silverCard.classList.add("unlocked");
+                silverCard.querySelector(".reward_status").innerText = "Unlocked"
+            }
+
+            if (finalPercentage >= 85) {
+                const goldCard = document.getElementById("reward_gold");
+                goldCard.classList.remove("locked");
+                goldCard.classList.add("unlocked");
+                goldCard.querySelector(".reward_status").innerText = "unlocked";
+            }
         }
 
 

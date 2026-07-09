@@ -234,7 +234,7 @@
         <button onclick="resetQuiz()" class="try_again">Try Again</button>
 
         <div class="reward_room_box">
-            <h3>You Unlocked Rewards Locker</h3>
+            <h3>You Unlock rewards Locker</h3>
 
             <div class="rewards_grid">
                 <div class="reward_card locked" id="reward_bronze">
@@ -255,8 +255,11 @@
                     <p class="reward_status">Requires 85% score</p>
                 </div>
             </div>
+
+
         </div>
     </div>
+
 
 
     <script>
@@ -272,44 +275,44 @@
                 points: [30, 20, 10, 0]
             },
             {
-                question: "Which League does Paris Saint German participate in",
-                options: ["Laliga", "Ligue 2", "Ligue 1", "Bundesliga"],
-                points: [0, 0, 20, 0]
+                question: "What year was Al-Nassr founded",
+                options: ["1976", "1984", "1955", "2007"],
+                points: [0, 0, 30, 0]
             },
             {
-                question: "Paris Saint German was founded in which country",
-                options: ["Argentina", "England", "Italy", "France"],
-                points: [0, 0, 0, 20]
+                question: "Which League does Al-Nassr play in",
+                options: ["Saudi Legends League", "Ligue 1", "Ligue 2", "Saudi Pro League"],
+                points: [0, 0, 0, 10]
             },
             {
-                question: "When was Paris Saint German founded",
-                options: ["1901", "1992", "2004", "1970"],
-                points: [0, 0, 0, 30]
+                question: "Which month was Al-Nassr founded",
+                options: ["January", "August", "September", "October"],
+                points: [0, 0, 0, 40]
             },
             {
-                question: "Which of these months was Paris Saint German founded in",
-                options: ["Febuary", "July", "August", "November"],
-                points: [0, 0, 40, 0]
+                question: "Al-Nassr Home Stadium",
+                options: ["Al Ittihad", "Mrsool Park", "Thanawiyya Stadium", "Al-Awwal Park"],
+                points: [0, 10, 0, 20]
             },
             {
-                question: "Who is PSG greatest Rival",
-                options: ["Real Madrid", "Bayern Munich", "Lyon", "Marseille"],
-                points: [0, 0, 0, 30]
+                question: "Iconic Al-Nassr Colours",
+                options: ["Yellow and Black", "Yellow and Blue", "Yellow and White", "Yellow alone"],
+                points: [0, 20, 0, 10]
             },
             {
-                question: "Which one of these stars never played at Paris Saint Germain",
-                options: ["Neymar Jr", "Lionel Messi", "Luis Suarez", "Marquinous"],
-                points: [0, 0, 20, 0]
+                question: "Owners Of Al-Nassr",
+                options: ["Saudi Fund Raising Unit", "Saudi Islamic Sports Organizatio", "Saudi Arabia Public Investment Fund", "Saudi Fund Raising Unit"],
+                points: [0, 0, 30, 0]
             },
             {
-                question: "Paris Saint Germain Home Stadium",
-                options: ["Parc des Princes", "Parc don Dzau", "Al-Ittifaq", "Emirates German"],
-                points: [30, 0, 0, 0]
+                question: "Which one of these stars is not playing for Al-Nassr",
+                options: ["Christiano Ronaldo", "Harry Kane", "Sadio Mane", "Aymeric Laporte"],
+                points: [0, 20, 0, 0]
             },
             {
-                question: "Which on of these players never played for Paris Saint Germain",
-                options: ["Ronaldinho", "Zlatan Ibrahimovic", "Kylian Mbape", "Thomas Muller"],
-                points: [0, 0, 0, 30]
+                question: "What year did Christiano Ronaldo Start Playing for Al-Nassr",
+                options: ["2021", "2023", "2019", "2024"],
+                points: [0, 20, 0, 0]
             }
         ];
 
@@ -416,24 +419,41 @@
                 }
             });
 
-            if (finalPercentage >= 0) {
+            if (finalPercentage >= 10) {
                 const bronzeCard = document.getElementById("reward_bronze");
-                bronzeCard.classList.remove("locked");
-                bronzeCard.classList.add("unlocked");
-                bronzeCard.querySelector(".reward_status").innerText = "Unlocked. Yay";
+                if (bronzeCard) {
+                    bronzeCard.classList.remove("locked");
+                    bronzeCard.classList.add("unlocked");
+                    const statusText = bronzeCard.querySelector(".reward_status");
+                    if (statusText) {
+                        statusText.innerText = "Unlocked. Yay";
+                    }
+                }
             }
 
             if (finalPercentage >= 50) {
                 const silverCard = document.getElementById("reward_silver");
-                silverCard.classList.remove("locked");
-                silverCard.classList.add("unlocked");
-                silverCard.querySelector(".reward_status").innerText = "Unlocked"
+                if (silverCard) {
+                    silverCard.classList.remove("locked");
+                    silverCard.classList.add("unlocked");
+                    const statusText = silverCard.querySelector(".reward_status");
+                    if (statusText) {
+                        statusText.innerText = "Unlocked";
+                    }
+                }
             }
 
             if (finalPercentage >= 85) {
                 const goldCard = document.getElementById("reward_gold");
-                goldCard.classList.remove("locked");
-                goldCard.classList.add("unlocked");
+                if (goldCard) {
+                    goldCard.classList.remove("locked");
+                    goldCard.classList.add("unlocked");
+                    const statusText = goldCard.querySelector(".reward_status");
+                    if (statusText) {
+                        statusText.innerText = "Unlocked";
+                    }
+                }
+
                 goldCard.querySelector(".reward_status").innerText = "unlocked";
             }
         }
