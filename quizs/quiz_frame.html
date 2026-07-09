@@ -202,6 +202,25 @@
                 box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
             }
         }
+
+        .highest_score_container {
+            margin-top: 15px;
+            background: #151f32;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px dashed #3b82f6;
+        }
+
+        .highest_score_container p {
+            color: #94a3b8;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        #highest_score_value {
+            color: #3b82f6;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -230,6 +249,11 @@
         <h2>Test Completed</h2>
         <p>Your Fan Loyalty Score: </p>
         <div id="score_value">0%</div>
+        <div class="highest_score_container">
+            <p>
+                Personal Best: <span id="highest_score_value">0%</span>
+            </p>
+        </div>
         <p id="loyalty_status">Calculating Status...</p>
         <button onclick="resetQuiz()" class="try_again">Try Again</button>
 
@@ -350,6 +374,18 @@
             const finalPercentage = Math.round((totalScore / maxPossibleScore) * 100);
 
             document.getElementById("score_value").innerText = finalPercentage + "%";
+
+            const storageKey = "highest_score";
+
+            let savedHighestScore = localStorage.getItem(storageKey) || 0;
+            savedHighestScore = parseInt(savedHighestScore);
+
+            if (finalPercentage > savedHighestScore) {
+                savedHighestScore = finalPercentage;
+                localStorage.setItem(storageKey, finalPercentage);
+            }
+
+            document.getElementById("highest_score_value").innerText = savedHighestScore + "%";
 
             let statusText = "";
             if (finalPercentage >= 85) {
