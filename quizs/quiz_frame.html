@@ -235,6 +235,7 @@
             color: #64748b;
             text-transform: uppercase;
             font-weight: 500;
+            order: -4;
         }
 
         .card {
@@ -354,32 +355,32 @@
                     <span>Score</span>
                 </div>
 
-                <div class="card first">
-                    <span class="rank">1st</span>
+                <div class="card first" id="cheeter">
+                    <span class="rank rank_text">1st</span>
                     <span class="username">Cheetah</span>
                     <span class="score">100%</span>
                 </div>
 
-                <div class="card second">
-                    <span class="rank">2nd</span>
+                <div class="card second" id="notaromba">
+                    <span class="rank rank_text">2nd</span>
                     <span class="username">NotARomba</span>
                     <span class="score">90%</span>
                 </div>
 
                 <div class="card user" id="user">
                     <span class="rank" id="user_rank">Calculating</span>
-                    <span class="username">You (Supporer)</span>
+                    <span class="username">You (Supporter)</span>
                     <span class="score" id="user_score">0%</span>
                 </div>
 
-                <div class="card">
-                    <span class="rank">4th</span>
+                <div class="card" id="capybara">
+                    <span class="rank rank_text">4th</span>
                     <span class="username">Capybara</span>
                     <span class="score">40%</span>
                 </div>
 
-                <div class="card">
-                    <span class="rank">5th</span>
+                <div class="card" id="stunt">
+                    <span class="rank rank_text">5th</span>
                     <span class="username">Stunt</span>
                     <span class="score">20%</span>
                 </div>
@@ -548,21 +549,47 @@
             const userRow = document.getElementById("user");
             const userRankText = document.getElementById("user_rank");
 
+            console.log("Cheetah element found", document.getElementById("cheetah"));
+            const cheetahRank = document.getElementById("cheetah").getElementsByTagName("span")[0];
+            const notarombaRank = document.getElementById("notaromba").getElementsByTagName("span")[0];
+            const capybaraRank = document.getElementById("capybara").getElementsByTagName("span")[0];
+            const stuntRank = document.getElementById("stunt").getElementsByTagName("span")[0];
+
             if (currentHighestScore === 100) {
                 userRankText.innerText = "1st";
                 userRow.style.order = "-3";
+                cheetahRank.innerText = "2nd";
+                notarombaRank.innerText = "3rd";
+                capybaraRank.innerText = "4th";
+                stuntRank.innerText = "5th";
             } else if (currentHighestScore >= 90) {
                 userRankText.innerText = "2nd";
                 userRow.style.order = "-2";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "3rd";
+                capybaraRank.innerText = "4th";
+                stuntRank.innerText = "5th";
             } else if (currentHighestScore >= 41) {
                 userRankText.innerText = "3rd";
                 userRow.style.order = "-1";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                capybaraRank.innerText = "4th";
+                stuntRank.innerText = "5th";
             } else if (currentHighestScore >= 21) {
                 userRankText.innerText = "4th";
                 userRow.style.order = "1";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                capybaraRank.innerText = "3rd";
+                stuntRank.innerText = "5th";
             } else {
                 userRankText.innerText = "5th";
                 userRow.style.order = "2";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                capybaraRank.innerText = "3rd";
+                stuntRank.innerText = "4th";
             }
         }
 
