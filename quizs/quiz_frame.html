@@ -356,13 +356,13 @@
                 </div>
 
                 <div class="card first" id="cheeter">
-                    <span class="rank rank_text">1st</span>
+                    <span class="rank cheetah_rank">1st</span>
                     <span class="username">Cheetah</span>
-                    <span class="score">100%</span>
+                    <span class="score">99%</span>
                 </div>
 
                 <div class="card second" id="notaromba">
-                    <span class="rank rank_text">2nd</span>
+                    <span class="rank notaromba_rank">2nd</span>
                     <span class="username">NotARomba</span>
                     <span class="score">90%</span>
                 </div>
@@ -374,13 +374,13 @@
                 </div>
 
                 <div class="card" id="capybara">
-                    <span class="rank rank_text">4th</span>
+                    <span class="rank capybara_rank">4th</span>
                     <span class="username">Capybara</span>
                     <span class="score">40%</span>
                 </div>
 
                 <div class="card" id="stunt">
-                    <span class="rank rank_text">5th</span>
+                    <span class="rank stunt_rank">5th</span>
                     <span class="username">Stunt</span>
                     <span class="score">20%</span>
                 </div>
@@ -549,11 +549,11 @@
             const userRow = document.getElementById("user");
             const userRankText = document.getElementById("user_rank");
 
-            console.log("Cheetah element found", document.getElementById("cheetah"));
-            const cheetahRank = document.getElementById("cheetah").getElementsByTagName("span")[0];
-            const notarombaRank = document.getElementById("notaromba").getElementsByTagName("span")[0];
-            const capybaraRank = document.getElementById("capybara").getElementsByTagName("span")[0];
-            const stuntRank = document.getElementById("stunt").getElementsByTagName("span")[0];
+
+            const cheetahRank = document.querySelector(".cheetah_rank");
+            const notarombaRank = document.querySelector(".notaromba_rank")
+            const capybaraRank = document.querySelector(".capybara_rank")
+            const stuntRank = document.querySelector(".stunt_rank")
 
             if (currentHighestScore === 100) {
                 userRankText.innerText = "1st";
