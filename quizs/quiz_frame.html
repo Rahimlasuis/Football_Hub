@@ -317,6 +317,9 @@
                 Personal Best: <span id="highest_score_value">0%</span>
             </p>
         </div>
+        <div>
+            <button id="reset_highest_score">Reset High Score</button>
+        </div>
         <p id="loyalty_status">Calculating Status...</p>
         <button onclick="resetQuiz()" class="try_again">Try Again</button>
 
@@ -557,41 +560,42 @@
 
             if (currentHighestScore === 100) {
                 userRankText.innerText = "1st";
-                userRow.style.order = "-3";
+                userRow.style.order = "1";
                 cheetahRank.innerText = "2nd";
                 notarombaRank.innerText = "3rd";
                 capybaraRank.innerText = "4th";
                 stuntRank.innerText = "5th";
             } else if (currentHighestScore >= 90) {
                 userRankText.innerText = "2nd";
-                userRow.style.order = "-2";
+                userRow.style.order = "2";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "3rd";
                 capybaraRank.innerText = "4th";
                 stuntRank.innerText = "5th";
             } else if (currentHighestScore >= 41) {
                 userRankText.innerText = "3rd";
-                userRow.style.order = "-1";
+                userRow.style.order = "3";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "2nd";
                 capybaraRank.innerText = "4th";
                 stuntRank.innerText = "5th";
             } else if (currentHighestScore >= 21) {
                 userRankText.innerText = "4th";
-                userRow.style.order = "1";
+                userRow.style.order = "4";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "2nd";
                 capybaraRank.innerText = "3rd";
                 stuntRank.innerText = "5th";
             } else {
                 userRankText.innerText = "5th";
-                userRow.style.order = "2";
+                userRow.style.order = "5";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "2nd";
                 capybaraRank.innerText = "3rd";
                 stuntRank.innerText = "4th";
             }
         }
+
 
 
         function resetQuiz() {
@@ -607,6 +611,20 @@
 
             loadQuestion();
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const resetScoreBtn = document.getElementById("reset_highest_score");
+
+            if (resetScoreBtn) {
+                resetScoreBtn.addEventListener("click", function () {
+                    const confirmReset = confirm("Are you sure");
+                    if (confirmReset) {
+                        localStorage.removeItem("highest_score");
+
+                    }
+                });
+            }
+        });
 
     </script>
 </body>
