@@ -549,16 +549,19 @@
 
             document.getElementById("user_score").innerText = currentHighestScore + "%";
 
-            const userRow = document.getElementById("user");
+            //const userRow = document.getElementById("user");
             const userRankText = document.getElementById("user_rank");
 
 
             const cheetahRank = document.querySelector(".cheetah_rank");
-            const notarombaRank = document.querySelector(".notaromba_rank");
-            const capybaraRank = document.querySelector(".capybara_rank");
-            const stuntRank = document.querySelector(".stunt_rank");
+            const notarombaRank = document.querySelector(".notaromba_rank")
+            const capybaraRank = document.querySelector(".capybara_rank")
+            const stuntRank = document.querySelector(".stunt_rank")
 
-
+            //document.getElementById("cheetah").style.order = "1";
+            //document.getElementById("notaromba").style.order = "3";
+            //document.getElementById("capybara").style.order = "5";
+            //document.getElementById("stunt").style.order = "7";
 
             if (currentHighestScore === 100) {
                 userRankText.innerText = "1st";
@@ -567,11 +570,6 @@
                 notarombaRank.innerText = "3rd";
                 capybaraRank.innerText = "4th";
                 stuntRank.innerText = "5th";
-                document.getElementById("user").style.order = "1";
-                document.getElementById("cheetah").style.order = "2";
-                document.getElementById("notaromba").style.order = "3";
-                document.getElementById("capybara").style.order = "4";
-                document.getElementById("stunt").style.order = "5";
 
             } else if (currentHighestScore >= 90) {
                 userRankText.innerText = "2nd";
@@ -603,6 +601,17 @@
                 stuntRank.innerText = "4th";
             }
 
+            if (currentHighestScore === 100) {
+                const leaderboardTable = document.querySelector(".leaderboard_table");
+                const divs = Array.from(leaderboardTable.children);
+                const desiredOrder = ['user', 'cheetah', 'notaromba', 'capybara', 'stunt'];
+
+                divs.sort((a, b) => {
+                    return desiredOrder.indexOf(a.textContent.trim()) - desiredOrder.indexOf(b.textContent.trim());
+
+                });
+                divs.forEach(div => leaderboardTable.appendChild(div))
+            }
         }
 
 
