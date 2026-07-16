@@ -272,6 +272,7 @@
 
         .second {
             border-color: #94a3b8;
+
         }
 
         .user {
@@ -283,6 +284,30 @@
 
         .user .username {
             color: #3b82f6;
+        }
+
+        .reset_btn {
+            background: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .reset_btn:hover {
+            background: #ef4444;
+            color: #ffffff;
+            border-color: #ef4444;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+        }
+
+        .reset_btn:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
@@ -312,14 +337,7 @@
         <h2>Test Completed</h2>
         <p>Your Fan Loyalty Score: </p>
         <div id="score_value">0%</div>
-        <div class="highest_score_container">
-            <p>
-                Personal Best: <span id="highest_score_value">0%</span>
-            </p>
-        </div>
-        <div>
-            <button id="reset_highest_score">Reset High Score</button>
-        </div>
+
         <p id="loyalty_status">Calculating Status...</p>
         <button onclick="resetQuiz()" class="try_again">Try Again</button>
 
@@ -344,6 +362,14 @@
                     <h4>Die Hard Ultra Wallpaper</h4>
                     <p class="reward_status">Requires 85% score</p>
                 </div>
+            </div>
+            <div class="highest_score_container">
+                <p>
+                    Personal Best: <span id="highest_score_value">0%</span>
+                </p>
+            </div>
+            <div class="reset_container">
+                <button id="reset_highest_score" class="reset_btn">Reset Personal Best</button>
             </div>
         </div>
 
