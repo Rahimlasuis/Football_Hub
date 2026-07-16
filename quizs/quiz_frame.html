@@ -396,20 +396,32 @@
                     <span class="score">90%</span>
                 </div>
 
+                <div class="card" id="noname">
+                    <span class="rank noname_rank">3rd</span>
+                    <span class="username">Noname</span>
+                    <span class="score">75%</span>
+                </div>
+
                 <div class="card user" id="user">
                     <span class="rank" id="user_rank">Calculating</span>
                     <span class="username">You</span>
                     <span class="score" id="user_score">0%</span>
                 </div>
 
+                <div class="card" id="thinking">
+                    <span class="rank thinking_rank">5th</span>
+                    <span class="username">Thinking</span>
+                    <span class="score" id="user_score">60%</span>
+                </div>
+
                 <div class="card" id="capybara">
-                    <span class="rank capybara_rank">4th</span>
+                    <span class="rank capybara_rank">6th</span>
                     <span class="username">Capybara</span>
                     <span class="score">40%</span>
                 </div>
 
                 <div class="card" id="stunt">
-                    <span class="rank stunt_rank">5th</span>
+                    <span class="rank stunt_rank">7th</span>
                     <span class="username">Stunt</span>
                     <span class="score">20%</span>
                 </div>
@@ -581,50 +593,82 @@
 
             const cheetahRank = document.querySelector(".cheetah_rank");
             const notarombaRank = document.querySelector(".notaromba_rank")
+            const nonameRank = document.querySelector(".noname_rank")
+            const thinkingRank = document.querySelector(".thinking_rank")
             const capybaraRank = document.querySelector(".capybara_rank")
             const stuntRank = document.querySelector(".stunt_rank")
 
             document.getElementById("cheetah").style.order = "1";
             document.getElementById("notaromba").style.order = "3";
-            document.getElementById("capybara").style.order = "5";
-            document.getElementById("stunt").style.order = "7";
+            document.getElementById("noname").style.order = "5";
+            document.getElementById("thinking").style.order = "7"
+            document.getElementById("capybara").style.order = "9";
+            document.getElementById("stunt").style.order = "11";
 
             if (currentHighestScore === 100) {
                 userRankText.innerText = "1st";
                 userRow.style.order = "0";
                 cheetahRank.innerText = "2nd";
                 notarombaRank.innerText = "3rd";
-                capybaraRank.innerText = "4th";
-                stuntRank.innerText = "5th";
+                nonameRank.innerText = "4th";
+                thinkingRank.innerText = "5th";
+                capybaraRank.innerText = "6th";
+                stuntRank.innerText = "7th";
 
             } else if (currentHighestScore >= 90) {
                 userRankText.innerText = "2nd";
                 userRow.style.order = "2";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "3rd";
-                capybaraRank.innerText = "4th";
-                stuntRank.innerText = "5th";
-            } else if (currentHighestScore >= 41) {
+                nonameRank.innerText = "4th";
+                thinkingRank.innerText = "5th";
+                capybaraRank.innerText = "6th";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 75) {
                 userRankText.innerText = "3rd";
                 userRow.style.order = "4";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "2nd";
-                capybaraRank.innerText = "4th";
-                stuntRank.innerText = "5th";
-            } else if (currentHighestScore >= 21) {
+                nonameRank.innerText = "4th";
+                thinkingRank.innerText = "5th";
+                capybaraRank.innerText = "6th";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 60) {
                 userRankText.innerText = "4th";
                 userRow.style.order = "6";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "2nd";
-                capybaraRank.innerText = "3rd";
-                stuntRank.innerText = "5th";
-            } else {
+                nonameRank.innerText = "3rd"
+                thinkingRank.innerText = "5th"
+                capybaraRank.innerText = "6rd";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 40) {
                 userRankText.innerText = "5th";
                 userRow.style.order = "8";
                 cheetahRank.innerText = "1st";
                 notarombaRank.innerText = "2nd";
-                capybaraRank.innerText = "3rd";
-                stuntRank.innerText = "4th";
+                nonameRank.innerText = "3rd";
+                thinkingRank.innerText = "4th";
+                capybaraRank.innerText = "6rd";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 20) {
+                userRankText.innerText = "6th";
+                userRow.style.order = "10";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                nonameRank.innerText = "3rd";
+                thinkingRank.innerText = "4th";
+                capybaraRank.innerText = "5th";
+                stuntRank.innerText = "7th";
+            } else {
+                userRankText.innerText = "7th";
+                userRow.style.order = "12";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                nonameRank.innerText = "3rd";
+                thinkingRank.innerText = "4th";
+                capybaraRank.innerText = "5th";
+                stuntRank.innerText = "6th";
             }
 
             const leaderboard = document.querySelector(".leaderboard_able");
