@@ -358,7 +358,7 @@
                     <span>Score</span>
                 </div>
 
-                <div class="card first" id="cheeter">
+                <div class="card first" id="cheetah">
                     <span class="rank cheetah_rank">1st</span>
                     <span class="username">Cheetah</span>
                     <span class="score">99%</span>
@@ -372,7 +372,7 @@
 
                 <div class="card user" id="user">
                     <span class="rank" id="user_rank">Calculating</span>
-                    <span class="username">You (Supporter)</span>
+                    <span class="username">You</span>
                     <span class="score" id="user_score">0%</span>
                 </div>
 
@@ -549,7 +549,7 @@
 
             document.getElementById("user_score").innerText = currentHighestScore + "%";
 
-            //const userRow = document.getElementById("user");
+            const userRow = document.getElementById("user");
             const userRankText = document.getElementById("user_rank");
 
 
@@ -558,14 +558,14 @@
             const capybaraRank = document.querySelector(".capybara_rank")
             const stuntRank = document.querySelector(".stunt_rank")
 
-            //document.getElementById("cheetah").style.order = "1";
-            //document.getElementById("notaromba").style.order = "3";
-            //document.getElementById("capybara").style.order = "5";
-            //document.getElementById("stunt").style.order = "7";
+            document.getElementById("cheetah").style.order = "1";
+            document.getElementById("notaromba").style.order = "3";
+            document.getElementById("capybara").style.order = "5";
+            document.getElementById("stunt").style.order = "7";
 
             if (currentHighestScore === 100) {
                 userRankText.innerText = "1st";
-                //userRow.style.order = "0";
+                userRow.style.order = "0";
                 cheetahRank.innerText = "2nd";
                 notarombaRank.innerText = "3rd";
                 capybaraRank.innerText = "4th";
@@ -601,16 +601,23 @@
                 stuntRank.innerText = "4th";
             }
 
+            const leaderboard = document.querySelector(".leaderboard_able");
+            const userCard = document.getElementById("user");
+            const cheetah = document.getElementById("cheetah");
+            const notaromba = document.getElementById("notaromba");
+            const capybara = document.getElementById("capybara");
+            const stunt = document.getElementById("stunt");
+
             if (currentHighestScore === 100) {
-                const leaderboardTable = document.querySelector(".leaderboard_table");
-                const divs = Array.from(leaderboardTable.children);
-                const desiredOrder = ['user', 'cheetah', 'notaromba', 'capybara', 'stunt'];
-
-                divs.sort((a, b) => {
-                    return desiredOrder.indexOf(a.textContent.trim()) - desiredOrder.indexOf(b.textContent.trim());
-
-                });
-                divs.forEach(div => leaderboardTable.appendChild(div))
+                leaderboard.insertBefore(userCard, cheetah);
+            } else if (currentHighestScore >= 90) {
+                leaderboard.insertBefore(userCard, notaromba);
+            } else if (currentHighestScore >= 40) {
+                leaderboard.insertBefore(userCard, capybara);
+            } else if (currentHighestScore >= 20) {
+                leaderboard.insertBefore(userCard, stunt);
+            } else {
+                leaderboard.appendchild(userCard);
             }
         }
 
