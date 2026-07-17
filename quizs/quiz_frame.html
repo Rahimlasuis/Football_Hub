@@ -365,7 +365,7 @@
             </div>
             <div class="highest_score_container">
                 <p>
-                    Personal Best: <span id="highest_score_value">0%</span>
+                    <span class="best">Personal Best:</span> <span id="highest_score_value">0%</span>
                 </p>
             </div>
             <div class="reset_container">
@@ -429,8 +429,7 @@
         </div>
     </div>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
         const quizData = [
@@ -530,9 +529,17 @@
             if (finalPercentage > savedHighestScore) {
                 savedHighestScore = finalPercentage;
                 localStorage.setItem(storageKey, finalPercentage);
+                alert("New Personal best unlocked");
+                console.log("High score broken");
+                triggerCelebration();
+                document.querySelector(".best").innerText = "New Personal Best";
+                localStorage.setItem("highest_score", finalPercentage);
+            } else {
+                localStorage.setItem("highest_score", savedHighestScore);
             }
 
             document.getElementById("highest_score_value").innerText = savedHighestScore + "%";
+
 
             let statusText = "";
             if (finalPercentage >= 85) {
@@ -671,7 +678,7 @@
                 stuntRank.innerText = "6th";
             }
 
-            const leaderboard = document.querySelector(".leaderboard_able");
+            /*const leaderboard = document.querySelector(".leaderboard_able");
             const userCard = document.getElementById("user");
             const cheetah = document.getElementById("cheetah");
             const notaromba = document.getElementById("notaromba");
@@ -688,7 +695,7 @@
                 leaderboard.insertBefore(userCard, stunt);
             } else {
                 leaderboard.appendchild(userCard);
-            }
+            }*/
         }
 
 
@@ -721,7 +728,32 @@
             }
         });
 
+        function triggerCelebration() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { x: 0.1, y: 0.6 }
+            });
 
+            setTimeout(function () {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { x: 0.9, y: 0.6 }
+                });
+            }, 250);
+            let currentHighestScore = localStorage.getItem("highest_score") || 0;
+            if (parseInt(currentHighestScore) === 100) {
+                setTimeout(function () {
+                    confetti({
+                        particleCount: 150,
+                        spread: 100,
+                        origin: { y: 0.3 },
+                        colors: ['#ffd700', '#ffa500', '#ff8c00']
+                    });
+                }, 500);
+            }
+        }
 
     </script>
 </body>
