@@ -529,7 +529,7 @@
             if (finalPercentage > savedHighestScore) {
                 savedHighestScore = finalPercentage;
                 localStorage.setItem(storageKey, finalPercentage);
-                alert("New Personal best unlocked");
+                alert("Conratulations, A new high score has been unlocked and rewards are ready");
                 console.log("High score broken");
                 triggerCelebration();
                 document.querySelector(".best").innerText = "New Personal Best";
@@ -754,6 +754,23 @@
                 }, 500);
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".reward_card");
+            cards.forEach(card => {
+                card.addEventListener("click", function () {
+                    const name = this.getAttribute("data_name");
+
+                    if (this.classList.contains("unlocked")) {
+                        const desc = this.getAttribute("data_desc") || "You have unlocked this exclusive reward";
+                        alert(`Reward Claimed: ${name}\n\n${desc}`);
+                    } else {
+                        const req = this.getAttribute("data_req") || "a higher score";
+                        alert(`Locked\n\nYou need a ${req} score to unlock the ${name}. Keep trying`);
+                    }
+                });
+            });
+        });
 
     </script>
 </body>
