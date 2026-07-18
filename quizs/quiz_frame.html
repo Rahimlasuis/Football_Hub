@@ -309,6 +309,52 @@
         .reset_btn:active {
             transform: scale(0.98);
         }
+
+        .modal_overlay {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal_content {
+            background: #1e293b;
+            border: 2px solid #3b82f6;
+            border-radius: 16px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            color: white;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .close_modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        .close_modal:hover {
+            color: #ef4444;
+        }
+
+        .gallery_row {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
     </style>
 </head>
 
@@ -345,32 +391,35 @@
             <h3>You Unlocked Rewards Locker</h3>
 
             <div class="rewards_grid">
-                <div class="reward_card locked" id="reward_bronze">
+                <div class="reward_card locked" id="reward_bronze" data-tier="casual" data-title="Club Casual Pack"
+                    data-wallpapers="2" data-avatars="2">
                     <div class="reward_icon">🥉</div>
                     <h4>Club Casual Badge</h4>
                     <p class="reward_status">Requires 10% score</p>
                 </div>
 
-                <div class="reward_card locked" id="reward_silver">
+                <div class="reward_card locked" id="reward_silver" data-tier="loyal" data-title="Loyal Supporter pack"
+                    data-wallpapers="4" data-avatars="3">
                     <div class="reward_icon">🥈</div>
                     <h4>Loyal Supporter Avatar</h4>
                     <p class="reward_status">Requires 50% score</p>
                 </div>
 
-                <div class="reward_card locked" id="reward_gold">
+                <div class="reward_card locked" id="reward_gold" data-tier="ultra" data-title="Die Hard Ultra Fan Pack"
+                    data-req="85%" data-wallpapers="8" data-avatars="6">
                     <div class="reward_icon">👑</div>
                     <h4>Die Hard Ultra Wallpaper</h4>
                     <p class="reward_status">Requires 85% score</p>
                 </div>
             </div>
-            <div class="highest_score_container">
-                <p>
-                    <span class="best">Personal Best:</span> <span id="highest_score_value">0%</span>
-                </p>
-            </div>
-            <div class="reset_container">
-                <button id="reset_highest_score" class="reset_btn">Reset Personal Best</button>
-            </div>
+        </div>
+        <div class="highest_score_container">
+            <p>
+                <span class="best">Personal Best:</span> <span id="highest_score_value">0%</span>
+            </p>
+        </div>
+        <div class="reset_container">
+            <button id="reset_highest_score" class="reset_btn">Reset Personal Best</button>
         </div>
 
         <div class="club_leaderboard_box">
@@ -771,8 +820,26 @@
                 });
             });
         });
-
     </script>
+
+    <div id="reward_modal" class="modal_overlay">
+        <div class="modal_content">
+            <span class="close_modal">&times;</span>
+            <h2 id="modal_title">Pack Unlocked</h2>
+            <p id="modal_subtitle">Here are your exclusive rewards</p>
+
+            <div class="reward_display_grid">
+                <div class="reward_section">
+                    <h3>Wallpapers (<span id="wp_count">0</span>)</h3>
+                    <div id="wallpaper_gallery" class="gallery_row"></div>
+                </div>
+                <div class="reward_section">
+                    <h3>Avatars (<span id="av_count">0</span>)</h3>
+                    <div class="gallery_row" id="avatar_gallery"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
