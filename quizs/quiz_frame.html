@@ -352,8 +352,9 @@
         .gallery_row {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
             overflow-x: auto;
-            padding: 10px 0;
+            padding: 12px 0 20px 0;
         }
 
         .reward_thumb {
@@ -864,7 +865,11 @@
                         wpBox.className = "reward_thumb wp";
                         wpBox.style.background = "linear-gradient(45deg, #1e293b, #334155)";
                         wpBox.style.color = "#3b82f6";
-                        wpBox.style.innerHTML = `<span style="font-size: 1.2rem;">🖼️</span><br><span style="font-size: 0.8rem; color: #94a3b8;">Wall #${i}</span>`;
+                        wpBox.style.display = "flex";
+                        wpBox.style.flexDirection = "column";
+                        wpBox.style.alignItems = "center";
+                        wpBox.style.justifyContent = "center";
+                        wpBox.innerHTML = `<span style="font-size: 1.2rem;">🖼️</span><br><span style="font-size: 0.8rem; color: #94a3b8;">Wall #${i}</span>`;
                         wpBox.addEventListener("click", function () {
                             alert(`Downloading Wallpaper ${i} from the ${title}`);
                         });
