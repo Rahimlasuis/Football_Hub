@@ -311,7 +311,7 @@
         }
 
         .modal_overlay {
-            display: block;
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -355,6 +355,31 @@
             overflow-x: auto;
             padding: 10px 0;
         }
+
+        .reward_thumb {
+            width: 75px;
+            height: 75px;
+            background: #334155;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .reward_thumb:hover {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+        }
+
+        .reward_thumb.wp {
+            width: 110px;
+            height: 65px;
+        }
     </style>
 </head>
 
@@ -395,7 +420,7 @@
                     data-wallpapers="2" data-avatars="2">
                     <div class="reward_icon">🥉</div>
                     <h4>Club Casual Badge</h4>
-                    <p class="reward_status">Requires 10% score</p>
+                    <p class="reward_status">Requires 25% score</p>
                 </div>
 
                 <div class="reward_card locked" id="reward_silver" data-tier="loyal" data-title="Loyal Supporter pack"
@@ -595,8 +620,10 @@
                 statusText = "Die Hard Ultra Fan"
             } else if (finalPercentage >= 50) {
                 statusText = "Loyal Supporter"
-            } else {
+            } else if (finalPercentage >= 25) {
                 statusText = "Casual viewer"
+            } else {
+                statusText = "Quite Low"
             }
 
             document.getElementById("loyalty_status").innerText = statusText;
@@ -617,7 +644,7 @@
                 }
             });
 
-            if (finalPercentage >= 0) {
+            if (finalPercentage >= 25) {
                 const bronzeCard = document.getElementById("reward_bronze");
                 bronzeCard.classList.remove("locked");
                 bronzeCard.classList.add("unlocked");
@@ -806,18 +833,55 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             const cards = document.querySelectorAll(".reward_card");
+            const modal = document.getElementById("reward_modal");
+            const closeModal = document.querySelector(".close_modal");
+
             cards.forEach(card => {
                 card.addEventListener("click", function () {
-                    const name = this.getAttribute("data_name");
+                    const title = this.getAttribute("data-title");
 
-                    if (this.classList.contains("unlocked")) {
-                        const desc = this.getAttribute("data_desc") || "You have unlocked this exclusive reward";
-                        alert(`Reward Claimed: ${name}\n\n${desc}`);
-                    } else {
-                        const req = this.getAttribute("data_req") || "a higher score";
-                        alert(`Locked\n\nYou need a ${req} score to unlock the ${name}. Keep trying`);
+                    if (this.classList.contains("locked")) {
+                        const req = this.getAttribute("data-req") || "a higher score is required";
+                        alert(`Locked\n\nYou need a ${req} score to unlock the ${title}. Try again. Good luck`);
+                        return;
                     }
+
+                    const tier = this.getAttribute("data-tier");
+                    const wpCount = parseInt(this.getAttribute("data-wallpapers"));
+                    const avCount = parseInt(this.getAttribute("data-avatars"));
+
+                    document.getElementById("modal_title").innerText = title;
+                    document.getElementById("wp_count").innerText = wpCount;
+                    document.getElementById("av_count").innerText = avCount;
+
+                    const wpGallery = document.getElementById("wallpaper_gallery");
+                    const avGallery = document.getElementById("avatar_gallery");
+                    wpGallery.innerText = "";
+                    avGallery.innerText = "";
+
+                    for (let i = 1; i <= wpCount; i++) {
+                        let wpBox = document.createElement("div");
+                        wpBox.className = "reward_thumb wp";
+                        wpBox.innerText = `WP #${i}`;
+                        wpGallery.appendChild(wpBox);
+                    }
+
+                    for (let i = 1; i <= avCount; i++) {
+                        let avBox = document.createElement("div");
+                        avBox.className = "reward_thumb av"
+                        avBox.innerText = `AV #${i}`;
+                        avGallery.appendChild(avBox);
+                    }
+
+                    modal.style.display = "flex";
                 });
+            });
+
+            if (closeModal) {
+                closeModal.addEventListener("click", () => modal.style.display = "none");
+            }
+            window.addEventListener("click", (e) => {
+                if (e.target === modal) { modal.style.display = "none"; }
             });
         });
     </script>
