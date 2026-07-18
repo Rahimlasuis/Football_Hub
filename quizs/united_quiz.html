@@ -640,14 +640,14 @@
 
             document.getElementById("score_value").innerText = finalPercentage + "%";
 
-            const storageKey = "highest_score";
+            const unitedStorageKey = "highest_score";
 
-            let savedHighestScore = localStorage.getItem(storageKey) || 0;
+            let savedHighestScore = localStorage.getItem(unitedStorageKey) || 0;
             savedHighestScore = parseInt(savedHighestScore);
 
             if (finalPercentage > savedHighestScore) {
                 savedHighestScore = finalPercentage;
-                localStorage.setItem(storageKey, finalPercentage);
+                localStorage.setItem(unitedStorageKey, finalPercentage);
                 alert("Conratulations, A new high score has been unlocked and rewards are ready");
                 console.log("High score broken");
                 triggerCelebration();
