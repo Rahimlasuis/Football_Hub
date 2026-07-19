@@ -818,7 +818,11 @@
                 resetScoreBtn.addEventListener("click", function () {
                     const confirmReset = confirm("Are you sure");
                     if (confirmReset) {
-                        localStorage.removeItem("highest_score");
+                        const currentQuiz = window.location.pathname.split("/").pop().replace(".html", "");
+                        const storageKey = `${currentQuiz}_highest_score`;
+                        localStorage.removeItem(storageKey);
+
+                        window.location.reload();
 
                     }
                 });

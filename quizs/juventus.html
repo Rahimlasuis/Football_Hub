@@ -625,7 +625,8 @@
 
             document.getElementById("score_value").innerText = finalPercentage + "%";
 
-            const storageKey = "highest_score";
+            const currentQuiz = window.location.pathname.split("/").pop().replace(".html", "");
+            const storageKey = `${currentQuiz}_highest_score`;
 
             let savedHighestScore = localStorage.getItem(storageKey) || 0;
             savedHighestScore = parseInt(savedHighestScore);
@@ -637,9 +638,8 @@
                 console.log("High score broken");
                 triggerCelebration();
                 document.querySelector(".best").innerText = "New Personal Best";
-                localStorage.setItem("highest_score", finalPercentage);
             } else {
-                localStorage.setItem("highest_score", savedHighestScore);
+
             }
 
             document.getElementById("highest_score_value").innerText = savedHighestScore + "%";
@@ -694,7 +694,7 @@
                 goldCard.classList.add("unlocked");
                 goldCard.querySelector(".reward_status").innerText = "unlocked";
             }
-            let currentHighestScore = localStorage.getItem("highest_score") || 0;
+            let currentHighestScore = localStorage.getItem(storageKey) || 0;
             currentHighestScore = parseInt(currentHighestScore);
 
             document.getElementById("user_score").innerText = currentHighestScore + "%";
@@ -806,7 +806,11 @@
                 resetScoreBtn.addEventListener("click", function () {
                     const confirmReset = confirm("Are you sure");
                     if (confirmReset) {
-                        localStorage.removeItem("highest_score");
+                        const currentQuiz = window.location.pathname.split("/").pop().replace(".html", "");
+                        const storageKey = `${currentQuiz}_highest_score`;
+                        localStorage.removeItem(storageKey);
+
+                        window.location.reload();
 
                     }
                 });
