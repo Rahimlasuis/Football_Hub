@@ -805,7 +805,9 @@
                     if (confirmReset) {
                         const currentQuiz = window.location.pathname.split("/").pop().replace(".html", "");
                         const storageKey = `${currentQuiz}_highest_score`;
-                        localStorage.removeItem("highest_score");
+                        localStorage.removeItem(storageKey);
+
+                        window.location.reload();
 
                     }
                 });

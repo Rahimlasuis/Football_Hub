@@ -822,6 +822,8 @@
                         const storageKey = `${currentQuiz}_highest_score`;
                         localStorage.removeItem(storageKey);
 
+                        window.location.reload();
+
                     }
                 });
             }
