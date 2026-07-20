@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Player Card</title>
+    <style>
+        .card {
+            width: 240px;
+            height: 340px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.25);
+        }
+
+        .epic_legend {
+            background: linear-gradient(135deg, #1a1300 0%, #3a2a00 40%, #8a6f27 75%, #ffd700 100%);
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .epic_legend .player_rating {
+            color: #ffd700;
+            text-shadow: 0 0 8px rgba(225, 215, 0, 0.6);
+        }
+
+        .epic_legend .player_position {
+            background: #ffd700;
+            color: #1a1300;
+        }
+
+        .card_top {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .player_rating {
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .player_position {
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 4px;
+            font-weight: bold;
+        }
+
+        .player_image {
+            position: absolute;
+            bottom: 65px;
+            width: 100%;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .player_photo {
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6));
+        }
+
+        .card_bottom {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            padding: 10pv 0;
+            text-align: center;
+            z-index: 3;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .player_name {
+            color: #fff;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .club_info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .club_logo {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+
+        .player_nation {
+            color: #bdc3c7;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card epic_legend">
+        <div class="card_top">
+            <div class="card_rating">99</div>
+            <div class="player_position">AMF</div>
+        </div>
+        <div class="player_image">
+            <img src="logos/bag.jpg" alt="Bag" class="player_photo">
+        </div>
+        <div class="card_bottom">
+            <div class="player_name">Raheem Abdul</div>
+            <div class="club_info">
+                <img src="logos/manulogo.png" alt="Club" class="club_logo">
+                <span class="player_nation">Nigeria</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
