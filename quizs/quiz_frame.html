@@ -607,6 +607,8 @@
                 localStorage.setItem(storageKey, finalPercentage);
                 alert("Conratulations, A new high score has been unlocked and rewards are ready");
                 console.log("High score broken");
+                const highScoreAudio = new Audio("../sounds/cheers.mp3");
+                highScoreAudio.volume = 0.3;
                 triggerCelebration();
                 document.querySelector(".best").innerText = "New Personal Best";
             } else {
