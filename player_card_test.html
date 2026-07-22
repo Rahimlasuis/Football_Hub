@@ -21,6 +21,23 @@
             transform: translateY(-8px) scale(1.25);
         }
 
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 25, 0.2));
+            transform: skewX(-25deg);
+            z-index: 4;
+        }
+
+        .card:hover::after {
+            left: 200%;
+            transition: left 0.75s ease-in-out;
+        }
+
         .epic_legend {
             background: linear-gradient(135deg, #1a1300 0%, #3a2a00 40%, #8a6f27 75%, #ffd700 100%);
             border: 3px solid #ffd700;
@@ -50,6 +67,8 @@
         .player_rating {
             font-size: 2.2rem;
             font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
             line-height: 1;
         }
 
@@ -63,19 +82,21 @@
 
         .player_image {
             position: absolute;
-            bottom: 65px;
+            bottom: 55px;
             width: 100%;
-            height: 220px;
+            height: 230px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             z-index: 2;
+            overflow: visible;
         }
 
         .player_photo {
             height: 100%;
+            max-width: 110%;
             object-fit: contain;
-            filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6));
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
         }
 
         .card_bottom {
@@ -127,7 +148,7 @@
             <div class="player_position">AMF</div>
         </div>
         <div class="player_image">
-            <img src="logos/bag.jpg" alt="Bag" class="player_photo">
+            <img src="logos/messi-removebg-preview.png" alt="Bag" class="player_photo">
         </div>
         <div class="card_bottom">
             <div class="player_name">Raheem Abdul</div>
