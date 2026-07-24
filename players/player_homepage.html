@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Players and Player Cards</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        button {
+            background: #1a1e29;
+            color: #a0aec0;
+            border: 1px solid #2d3748;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button.active,
+        button:hover {
+            background: #00f0ff;
+            color: #0d1117;
+            border-color: #00f0ff;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="active">All Players</button>
+        <button>Young Stars</button>
+        <button>Past Legends</button>
+    </div>
+
+    <div id="player_grid" class="player_grid"></div>
+</body>
+
+</html>
