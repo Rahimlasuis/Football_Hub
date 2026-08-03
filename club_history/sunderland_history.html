@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+            color: #f8fafc;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .full_container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 4px;
+            background: #334155;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #1e293b;
+            border: 4px solid #3b82f6;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .item.right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 25px;
+            background: #1e293b;
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid #2e3f5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin-bottom: 8px;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .content p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media screen and (max-width: 760px) {
+            .line {
+                left: 31px
+            }
+
+            .item {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 25px;
+            }
+
+            .item.left,
+            .item.right {
+                left: 0;
+                text-align: left;
+            }
+
+            .item::after {
+                left: 23px;
+                right: auto;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        .back_container {
+            max-width: 1000px;
+            margin: 0 auto 15px auto;
+            text-align: left;
+        }
+
+        .back_btn {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .back_btn:hover {
+            color: #3b82f6;
+        }
+
+        .logo_container {
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 600px;
+            letter-spacing: 1px;
+            margin: 10px auto 0 auto;
+            color: #ffffff;
+        }
+
+        .header_divider {
+            width: 500px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            margin: 20px auto 40px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="back_container">
+            <a class="back_btn"></a>
+        </div>
+        <div class="logo_container">
+            <img id="logo" src="logos/sunderlandlogo.png" alt="Club Badge" class="logo">
+        </div>
+        <h1 class="title"><span class="name">Sunderland</span></h1>
+        <p class="subtitle">Take a journey with us through our legendary unforgettable eras</p>
+        <div class="header_divider"></div>
+    </header>
+    <div class="full_container">
+        <h1 class="title"> Our Club's Golden History</h1>
+
+        <div class="container">
+            <div class="line"></div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1879</span>
+                    <h3>The Genesis</h3>
+                    <p>Founded in October 1879 by Scottish schoolmaster James Allan, Sunderland Association Football
+                        Club grew into an early English powerhouse. </p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1890</span>
+                    <h3>The Football League</h3>
+                    <p>Started as a teachers' team before opening membership to the public. Joined the Football League
+                        in 1890.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1980s</span>
+                    <h3>First Glories</h3>
+                    <p>Won three First Division titles in the 1890s (1890–91, 1892–93, 1894–95)</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1990s</span>
+                    <h3>More Success</h3>
+                    <p>Sunderland added more First Division League titles in 1902, 1913,1936</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1937</span>
+                    <h3>FA Cup</h3>
+                    <p>Sunderland claimed their first FA Cup in 1937</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1973</span>
+                    <h3>More Glory</h3>
+                    <p> Stunned Leeds United 1–0 in the FA Cup final while playing in the Second Division.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1997</span>
+                    <h3>The Parking</h3>
+                    <p>Left Roker Park after 99 years to open the Stadium of Light in 1997.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">Date</span>
+                    <h3>Recent Times</h3>
+                    <p> Experienced promotions, relegations, and Premier League spells before rebuilding in the English
+                        football pyramid</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const items = document.querySelectorAll(".item");
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const timelineObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            items.forEach(item => {
+                timelineObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>
