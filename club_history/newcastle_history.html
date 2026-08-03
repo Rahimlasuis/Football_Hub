@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+            color: #f8fafc;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .full_container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 4px;
+            background: #334155;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #1e293b;
+            border: 4px solid #3b82f6;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .item.right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 25px;
+            background: #1e293b;
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid #2e3f5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin-bottom: 8px;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .content p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media screen and (max-width: 760px) {
+            .line {
+                left: 31px
+            }
+
+            .item {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 25px;
+            }
+
+            .item.left,
+            .item.right {
+                left: 0;
+                text-align: left;
+            }
+
+            .item::after {
+                left: 23px;
+                right: auto;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        .back_container {
+            max-width: 1000px;
+            margin: 0 auto 15px auto;
+            text-align: left;
+        }
+
+        .back_btn {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .back_btn:hover {
+            color: #3b82f6;
+        }
+
+        .logo_container {
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 600px;
+            letter-spacing: 1px;
+            margin: 10px auto 0 auto;
+            color: #ffffff;
+        }
+
+        .header_divider {
+            width: 500px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            margin: 20px auto 40px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="back_container">
+            <a class="back_btn"></a>
+        </div>
+        <div class="logo_container">
+            <img id="logo" src="logos/newcastlelogo.png" alt="Club Badge" class="logo">
+        </div>
+        <h1 class="title"><span class="name">Frame</span></h1>
+        <p class="subtitle">Take a journey with us through our legendary unforgettable eras</p>
+        <div class="header_divider"></div>
+    </header>
+    <div class="full_container">
+        <h1 class="title"> Our Club's Golden History</h1>
+
+        <div class="container">
+            <div class="line"></div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1892</span>
+                    <h3>The Genesis</h3>
+                    <p>Founded in 1892 in Newcastle upon Tyne, Newcastle United Football Club emerged from a merger of
+                        local teams and moved into St. James' Park.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1905</span>
+                    <h3>The First Trophy</h3>
+                    <p>Newcastle won its first Division League title, marking the beginning of a golden era for the
+                        club.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1907/1908</span>
+                    <h3>More Success</h3>
+                    <p>Newcastle won their second and third First Division League title in 1907 and 1908 respectively
+                    </p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1910</span>
+                    <h3>FA Cup</h3>
+                    <p>Newcastle won their first FA Cup in 1910</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1924</span>
+                    <h3>FA Cup</h3>
+                    <p>Newcastle won their second FA Cup in 1924</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1950s</span>
+                    <h3>Jackie Milburn</h3>
+                    <p>Newcastle continued to achieve success and lifted three more additional FA Cups in the years
+                        1951, 1953 and 1955 respectively led by the legendary forward Jackie Milburn</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1969</span>
+                    <h3>European Honors</h3>
+                    <p>Claimed their first major European honor by winning the Inter-Cities Fairs Cup in 1969.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1990s</span>
+                    <h3>Kevin Keegan & Alan Shearer</h3>
+                    <p>Managed by Kevin Keegan in the mid-1990s, the team played thrilling attacking football, finishing
+                        as Premier League runners-up twice with star striker Alan Shearer.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">2000s</span>
+                    <h3>Bobby Robson</h3>
+                    <p>Reached the UEFA Champions League under Sir Bobby Robson in the early 2000s</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">2021</span>
+                    <h3>New Ownership</h3>
+                    <p>A Saudi-led consortium completed a high-profile takeover of the club in October 2021.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">2025</span>
+                    <h3>Eddie Howe</h3>
+                    <p> Returned to the UEFA Champions League and captured the Carabao Cup in 2025 under Eddie Howe,
+                        marking their first major piece of silverware in seven decades</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const items = document.querySelectorAll(".item");
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const timelineObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            items.forEach(item => {
+                timelineObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>

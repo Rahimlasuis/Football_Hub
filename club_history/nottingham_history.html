@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+            color: #f8fafc;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .full_container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 4px;
+            background: #334155;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #1e293b;
+            border: 4px solid #3b82f6;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .item.right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 25px;
+            background: #1e293b;
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid #2e3f5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin-bottom: 8px;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .content p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media screen and (max-width: 760px) {
+            .line {
+                left: 31px
+            }
+
+            .item {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 25px;
+            }
+
+            .item.left,
+            .item.right {
+                left: 0;
+                text-align: left;
+            }
+
+            .item::after {
+                left: 23px;
+                right: auto;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        .back_container {
+            max-width: 1000px;
+            margin: 0 auto 15px auto;
+            text-align: left;
+        }
+
+        .back_btn {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .back_btn:hover {
+            color: #3b82f6;
+        }
+
+        .logo_container {
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 600px;
+            letter-spacing: 1px;
+            margin: 10px auto 0 auto;
+            color: #ffffff;
+        }
+
+        .header_divider {
+            width: 500px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            margin: 20px auto 40px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="back_container">
+            <a class="back_btn"></a>
+        </div>
+        <div class="logo_container">
+            <img id="logo" src="logos/nottinghamlogo.png" alt="Club Badge" class="logo">
+        </div>
+        <h1 class="title"><span class="name">Frame</span></h1>
+        <p class="subtitle">Take a journey with us through our legendary unforgettable eras</p>
+        <div class="header_divider"></div>
+    </header>
+    <div class="full_container">
+        <h1 class="title"> Our Club's Golden History</h1>
+
+        <div class="container">
+            <div class="line"></div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1865</span>
+                    <h3>The Genesis</h3>
+                    <p>Founded in 1865, Nottingham Forest F.C. is one of England's oldest professional football clubs
+                        Shinty players met at the Clinton Arms in 1865 and chose to form a football club instead.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1886</span>
+                    <h3>Red</h3>
+                    <p>Adopted "Garibaldi Red" shirts named after Italian patriot Giuseppe Garibaldi. Helped other
+                        famous clubs, like Arsenal in 1886, by donating red kits.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1898</span>
+                    <h3>First Trophy</h3>
+                    <p>Won their first major trophy by defeating Derby County 3–1 in the 1898 FA Cup Final.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1959</span>
+                    <h3>FA Cup</h3>
+                    <p>Claimed a quiet FA Cup victory in 1959, but otherwise stayed away from major domestic threats for
+                        decades. </p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1975</span>
+                    <h3>Brian Clough</h3>
+                    <p>Brian Clough took charge in 1975 and turned the struggling second-tier club into champions.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1977-78</span>
+                    <h3>Division League</h3>
+                    <p>Won the First Division league title in the 1977–78 season straight after promotion.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1979-80</span>
+                    <h3>European Glory</h3>
+                    <p>Lifted consecutive European Cups in 1979 and 1980, an incredible peak of international success.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1993</span>
+                    <h3>Retirement</h3>
+                    <p>Captured League Cups in 1978 and 1989 before Clough retired in 1993. </p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1993</span>
+                    <h3>The Dropback</h3>
+                    <p>Suffered a decline after Clough left, leading to relegation drops, including a stint in the third
+                        tier.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">2022</span>
+                    <h3>Promotion</h3>
+                    <p>Fought through years in the Championship before winning promotion back to the Premier League via
+                        the 2022 play-offs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const items = document.querySelectorAll(".item");
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const timelineObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            items.forEach(item => {
+                timelineObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>
