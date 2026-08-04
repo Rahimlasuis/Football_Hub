@@ -646,6 +646,8 @@
                 localStorage.setItem(storageKey, finalPercentage);
                 alert("Conratulations, A new high score has been unlocked and rewards are ready");
                 console.log("High score broken");
+                const highScoreAudio = new Audio("../sounds/cheers.mp3");
+                highScoreAudio.volume = 0.3;
                 triggerCelebration();
                 document.querySelector(".best").innerText = "New Personal Best";
             } else {
@@ -925,6 +927,45 @@
             });
         });
 
+        document.addEventListener("keydown", function (event) {
+            if (event.key >= "1" && event.key <= "4") {
+                const optionIndex = parseInt(event.key) - 1;
+                const options = document.querySelectorAll(".option_btn");
+                if (options[optionIndex]) {
+                    options[optionIndex].click();
+                }
+            }
+
+            const keyUpper = event.key.toUpperCase();
+            if (["A", "B", "C", "D"].includes(keyUpper)) {
+                const optionIndex = ["A", "B", "C", "D"].indexOf(keyUpper);
+                const options = document.querySelectorAll(".option_btn");
+                if (options[optionIndex]) {
+                    options[optionIndex].click();
+                }
+            }
+
+            if (event.key === "ArrowRight") {
+                const nextBtn = document.getElementById("next_btn");
+                if (nextBtn && nextBtn.style.display !== "none") {
+                    nextBtn.click();
+                }
+            }
+
+            if (event.key === "ArrowLeft") {
+                const prevBtn = document.getElementById("prev_btn");
+                if (prevBtn && prevBtn.style.display !== "none") {
+                    prevBtn.click()
+                }
+            }
+
+            if (event.key === "Enter") {
+                const submitBtn = document.getElementById("submit_btn");
+                if (submitBtn && submitBtn.style.display !== "none") {
+                    submitBtn.click();
+                }
+            }
+        });
     </script>
 
     <div id="reward_modal" class="modal_overlay">

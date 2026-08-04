@@ -520,12 +520,12 @@
             {
                 question: "When was Barcelona Founded",
                 options: ["1999", "1982", "1976", "1899"],
-                options: [0, 0, 0, 30]
+                points: [0, 0, 0, 30]
             },
             {
                 question: "Who was the lead founder of FC Barcelona",
                 options: ["Joan Gamper", "Joao Silva", "Victor Torres", "Lionek James"],
-                options: [30, 0, 0, 0]
+                points: [30, 0, 0, 0]
             },
             {
                 question: "Barcelona Home Stadium is known as",
@@ -550,7 +550,7 @@
             {
                 question: "Which of these Coahes never coached Barcelona",
                 options: ["Pep Guardiolla", "Johan Cruyff", "Luis Enrique", "Roberto Carlous"],
-                options: [0, 0, 0, 30]
+                points: [0, 0, 0, 30]
             },
             {
                 question: "Who is Barcelona's Greates Rival",
@@ -646,6 +646,8 @@
                 localStorage.setItem(storageKey, finalPercentage);
                 alert("Conratulations, A new high score has been unlocked and rewards are ready");
                 console.log("High score broken");
+                const highScoreAudio = new Audio("../sounds/cheers.mp3");
+                highScoreAudio.volume = 0.3;
                 triggerCelebration();
                 document.querySelector(".best").innerText = "New Personal Best";
             } else {
@@ -924,6 +926,45 @@
             });
         });
 
+        document.addEventListener("keydown", function (event) {
+            if (event.key >= "1" && event.key <= "4") {
+                const optionIndex = parseInt(event.key) - 1;
+                const options = document.querySelectorAll(".option_btn");
+                if (options[optionIndex]) {
+                    options[optionIndex].click();
+                }
+            }
+
+            const keyUpper = event.key.toUpperCase();
+            if (["A", "B", "C", "D"].includes(keyUpper)) {
+                const optionIndex = ["A", "B", "C", "D"].indexOf(keyUpper);
+                const options = document.querySelectorAll(".option_btn");
+                if (options[optionIndex]) {
+                    options[optionIndex].click();
+                }
+            }
+
+            if (event.key === "ArrowRight") {
+                const nextBtn = document.getElementById("next_btn");
+                if (nextBtn && nextBtn.style.display !== "none") {
+                    nextBtn.click();
+                }
+            }
+
+            if (event.key === "ArrowLeft") {
+                const prevBtn = document.getElementById("prev_btn");
+                if (prevBtn && prevBtn.style.display !== "none") {
+                    prevBtn.click()
+                }
+            }
+
+            if (event.key === "Enter") {
+                const submitBtn = document.getElementById("submit_btn");
+                if (submitBtn && submitBtn.style.display !== "none") {
+                    submitBtn.click();
+                }
+            }
+        });
     </script>
 
     <div id="reward_modal" class="modal_overlay">
