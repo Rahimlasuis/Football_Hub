@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+            color: #f8fafc;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .full_container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+        }
+
+        .line {
+            position: absolute;
+            width: 4px;
+            background: #334155;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: #1e293b;
+            border: 4px solid #3b82f6;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .item.right::after {
+            left: -8px;
+        }
+
+        .content {
+            padding: 20px 25px;
+            background: #1e293b;
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid #2e3f5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ebd115;
+            margin-bottom: 8px;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .content p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media screen and (max-width: 760px) {
+            .line {
+                left: 31px
+            }
+
+            .item {
+                width: 100%;
+                padding-left: 55px;
+                padding-right: 25px;
+            }
+
+            .item.left,
+            .item.right {
+                left: 0;
+                text-align: left;
+            }
+
+            .item::after {
+                left: 23px;
+                right: auto;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        .back_container {
+            max-width: 1000px;
+            margin: 0 auto 15px auto;
+            text-align: left;
+        }
+
+        .back_btn {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .back_btn:hover {
+            color: #3b82f6;
+        }
+
+        .logo_container {
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .title {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 600px;
+            letter-spacing: 1px;
+            margin: 10px auto 0 auto;
+            color: #ffffff;
+        }
+
+        .header_divider {
+            width: 500px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            margin: 20px auto 40px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="back_container">
+            <a class="back_btn"></a>
+        </div>
+        <div class="logo_container">
+            <img id="logo" src="logos/bayernminichlogo.png" alt="Club Badge" class="logo">
+        </div>
+        <h1 class="title"><span class="name">Bayern Munich</span></h1>
+        <p class="subtitle">Take a journey with us through our legendary unforgettable eras</p>
+        <div class="header_divider"></div>
+    </header>
+    <div class="full_container">
+        <h1 class="title"> Our Club's Golden History</h1>
+
+        <div class="container">
+            <div class="line"></div>
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1900</span>
+                    <h3>The Genesis</h3>
+                    <p>Founded in 1900 by Franz John and some other players, FC Bayern Munich grew from a local
+                        breakaway group into Germany's most successful football club. Seventeen men met at Café Gisela
+                        to establish the club.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1932</span>
+                    <h3>The First Trophy</h3>
+                    <p>Bayern won their first German championship by defeating Eintracht Frankfurt.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1960</span>
+                    <h3>World War II</h3>
+                    <p> The club suffered under the Nazi regime due to its Jewish roots. President Kurt Landauer fled
+                        into exile.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1963</span>
+                    <h3>The Crisis</h3>
+                    <p> Bayern was left out of the newly formed Bundesliga due to financial troubles.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1965</span>
+                    <h3>The Rebirth</h3>
+                    <p> Bayern made a remarkable comeback, promoted to the Bundesliga led by young stars Franz
+                        Beckenbauer, Gerd Müller, and Sepp Maier.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1974</span>
+                    <h3>Continental Trophy</h3>
+                    <p>Won the European Cup Winners' Cup for their first continental trophy.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">1974-1976</span>
+                    <h3>The European Glory</h3>
+                    <p> Won three consecutive European Cups in 1974, 1975, and 1976 to cement an international dynasty.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">1987</span>
+                    <h3>Prominence</h3>
+                    <p>Bayern Munich became undoubtfully the best, most prominent and most successful club in germany.
+                        They became the record domestic champions of germany.</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">2001</span>
+                    <h3>Champions League</h3>
+                    <p>Bayern Munich won their first UEFA Champions League title.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">2013</span>
+                    <h3>Another</h3>
+                    <p>Bayern Munich won another UEFA Champions League title. The 2013 victory completed a historic
+                        treble (Bundesliga, DFB-Pokal, and Champions League).</p>
+                </div>
+            </div>
+
+            <div class="item left">
+                <div class="content">
+                    <span class="year">2020</span>
+                    <h3>Continental Treble</h3>
+                    <p>Secured another historic continental treble by winning their sixth Champions League title.</p>
+                </div>
+            </div>
+
+            <div class="item right">
+                <div class="content">
+                    <span class="year">2023</span>
+                    <h3>Recent Years</h3>
+                    <p> Continued domestic dominance, setting a record of 11 consecutive Bundesliga titles through 2023.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const items = document.querySelectorAll(".item");
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const timelineObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            items.forEach(item => {
+                timelineObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>
