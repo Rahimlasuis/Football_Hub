@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div id="header">
+        <h2>Test your Football Knowledge</h2>
+        <label for="difficulty">Select Mode:</label>
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+
+        <label for="questions_number">Number of Questions:</label>
+        <select id="questions_number">
+            <option value="1">1 Questions</option>
+            <option value="2">2 Questions</option>
+            <option value="3">3 Questions</option>
+        </select>
+
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+
+    <div id="questions" style="display: none;"></div>
+
+
+
+    <script>
+        const questionBank = {
+            easy: [
+                {
+                    question: "Which club has won the most UEFA Champions League titles?",
+                    options: ["Real Madrid", "AC Milan", "Liverpool", "Barcelona"],
+                    answer: "Real Madrid"
+                },
+                {
+                    question: "Who is the all-time top scorer in the English Premier League?",
+                    options: ["Alan Shearer", "Wayne Rooney", "Thierry Henry", "Sergio Agüero"],
+                    answer: "Alan Shearer"
+                },
+                {
+                    question: "Which country won the 2018 FIFA World Cup?",
+                    options: ["Germany", "Brazil", "France", "Argentina"],
+                    answer: "France"
+                }
+            ],
+            medium: [
+                {
+                    question: "Which player has won the most Ballon d'Or awards?",
+                    options: ["Lionel Messi", "Cristiano Ronaldo", "Michel Platini", "Johan Cruyff"],
+                    answer: "Lionel Messi"
+                },
+                {
+                    question: "Which club is known as 'The Red Devils'?",
+                    options: ["Manchester United", "Liverpool", "Arsenal", "Chelsea"],
+                    answer: "Manchester United"
+                },
+                {
+                    question: "Who scored the winning goal in the 2010 FIFA World Cup final?",
+                    options: ["Andrés Iniesta", "David Villa", "Xavi Hernández", "Fernando Torres"],
+                    answer: "Andrés Iniesta"
+                }
+            ],
+            hard: [
+                {
+                    question: "Which club did Diego Maradona play for in Italy?",
+                    options: ["Juventus", "AC Milan", "Napoli", "Inter Milan"],
+                    answer: "Napoli"
+                },
+                {
+                    question: "Who is the youngest player to score in a FIFA World Cup match?",
+                    options: ["Pele", "Kylian Mbappé", "Michael Owen", "Norman Whiteside"],
+                    answer: "Pelé"
+                },
+                {
+                    question: "Which country hosted the first FIFA World Cup in 1930?",
+                    options: ["Uruguay", "Brazil", "Argentina", "Chile"],
+                    answer: "Uruguay"
+                }
+            ]
+        };
+
+        let currentQuizQuestions = [];
+        let currentQuestionIndex = 0;
+
+        function startQuiz() {
+            const selectedDifficulty = document.getElementById("difficulty").value;
+            const requestedCount = parseInt(document.getElementById("questions_number").value);
+
+            const pool = [...questionBank[selectedDifficulty]];
+
+            for (let i = pool.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [pool[i], pool[j]] = [pool[j], pool[i]];
+            }
+
+            currentQuizQuestions = pool.slice(0, requestedCount);
+
+            document.getElementById("header").style.display = "none";
+            document.getElementById("questions").style.display = "block";
+
+            currentQuestionIndex = 0;
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
+        }
+    </script>
+</body>
+
+</html>
