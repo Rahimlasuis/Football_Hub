@@ -28,7 +28,7 @@
         <div id="question_number">Question 1</div>
         <h3 id="question_text">Question will appear in this div</h3>
 
-        <div id="options_container" style="display: none;">
+        <div id="options_container">
         </div>
 
         <button id="next_btn" onclick="nextQuestion()">Next Question</button>
@@ -124,24 +124,24 @@
         function displayQuestion() {
             const current = currentQuizQuestions[currentQuestionIndex];
 
-            document.getElementById("question_number").innerText = `Question ${currentQuestionIndex = 1} of ${currentQuizQuestions.length}`;
+            document.getElementById("question_number").innerText = `Question ${currentQuestionIndex + 1} of ${currentQuizQuestions.length}`;
             document.getElementById("question_text").innerText = current.question;
 
             const optionsContainer = document.getElementById("options_container");
             optionsContainer.innerHTML = "";
 
-            current.options.forEach((optionText, index) => {
+            current.options.forEach((optionText) => {
                 const btn = document.createElement("button");
-                btn.innerText = optionText;
-                btn.className = "option_btn";
-                btn.onclick = () => selectedOption(index);
+                btn.classList.add("option_btn");
+                btn.textContent = optionText;
+                btn.onclick = () => selectedAnswer(optionText);
                 optionsContainer.appendChild(btn);
             });
         }
 
-        function selectOption(selectedIndex) {
+        function selectedAnswer(selectedOption) {
             const current = currentQuizQuestions[currentQuestionIndex];
-            if (selectedIndex === current.answer) {
+            if (selectedOption === current.answer) {
                 score++;
             }
             nextQuestion();
