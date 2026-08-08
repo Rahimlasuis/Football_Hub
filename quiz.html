@@ -24,7 +24,15 @@
     </div>
 
 
-    <div id="questions" style="display: none;"></div>
+    <div id="questions" style="display: none;">
+        <div id="question_number">Question 1</div>
+        <h3 id="question_text">Question will appear in this div</h3>
+
+        <div id="options_container" style="display: none;">
+        </div>
+
+        <button id="next_btn" onclick="nextQuestion()">Next Question</button>
+    </div>
 
 
 
@@ -85,6 +93,7 @@
 
         let currentQuizQuestions = [];
         let currentQuestionIndex = 0;
+        let score = 0;
 
         function startQuiz() {
             const selectedDifficulty = document.getElementById("difficulty").value;
@@ -97,17 +106,57 @@
                 [pool[i], pool[j]] = [pool[j], pool[i]];
             }
 
-            currentQuizQuestions = pool.slice(0, requestedCount);
+            currentQuizQuestions = pool.slice(0, Math.min(requestedCount, pool.length));
+
+            if (currentQuizQuestions.length === 0) {
+                alert("No questions available");
+                return;
+            }
 
             document.getElementById("header").style.display = "none";
             document.getElementById("questions").style.display = "block";
 
             currentQuestionIndex = 0;
+            score = 0;
             displayQuestion();
         }
 
         function displayQuestion() {
-            const currentQuestion = currentQuizQuestions[currentQuestionIndex];
+            const current = currentQuizQuestions[currentQuestionIndex];
+
+            document.getElementById("question_number").innerText = `Question ${currentQuestionIndex = 1} of ${currentQuizQuestions.length}`;
+            document.getElementById("question_text").innerText = current.question;
+
+            const optionsContainer = document.getElementById("options_container");
+            optionsContainer.innerHTML = "";
+
+            current.options.forEach((optionText, index) => {
+                const btn = document.createElement("button");
+                btn.innerText = optionText;
+                btn.className = "option_btn";
+                btn.onclick = () => selectedOption(index);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedIndex) {
+            const current = currentQuizQuestions[currentQuestionIndex];
+            if (selectedIndex === current.answer) {
+                score++;
+            }
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuizQuestions.length) {
+                displayQuestion();
+            } else {
+                document.getElementById("questions").innerHTML = `
+                <h2>Quiz Completed</h2>
+                <p>Your Score is ${score} out of ${currentQuizQuestions.length}</p>
+                <button onclick="Location.reload()">Reset Quiz</button>`
+            }
         }
     </script>
 </body>
