@@ -116,6 +116,48 @@
             font-weight: bold;
             margin-top: 10px;
         }
+
+        .quiz_btn {
+            background-color: green;
+            padding: 3px 6px;
+            color: white;
+            font-size: 22px;
+        }
+
+        .quiz_btn:hover {
+            box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+            transition: all 0.15s ease;
+        }
+
+        .history_btn {
+            background-color: green;
+            padding: 5px 10px;
+            color: white;
+            font-size: 22px;
+        }
+
+        .history_btn:hover {
+            box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+            transition: all 0.15s ease;
+        }
+
+        .player_btn {
+            background-color: #007bff;
+            color: white;
+            border: 2px solid Green;
+            padding: 20px;
+            color: white;
+            font-size: 28px;
+            text-align: center;
+        }
+
+
+        .player_btn:hover {
+            background-color: red;
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 
@@ -3513,10 +3555,24 @@
 
     </div>
 
+    <a href="players/player_homepage.html">
+        <div class="player_btn">Click here to Move to player
+            homepage</div>
+    </a>
+
+
     <div class="quiz_container">
         <h2>Take Quizes to prove your loyalty</h2>
         <p>Are you a Loyal Fan. It's time to prove your loyalty. Quizes aren't available for all Clubs. Search for your
             club and click on it to take the quiz and unlock special rewards depending on your score.</p>
+        <a href="quiz_homepage.html"><button class="quiz_btn">Take Quiz</button></a>
+        <h1>Or Take a General football quiz</h1>
+        <a href="quiz.html"><button class="quiz_btn">Take Quiz</button></a>
+
+        <h1>View and Learn about your club's legendary history from the very beginnig, to recent victories,achievements
+            and major setbacks</h1>
+        <a href="history_homepage.html"><button class="history_btn">View Club's history</button></a>
+
 
     </div>
 
