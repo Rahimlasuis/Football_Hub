@@ -65,6 +65,12 @@ smoothly appear.
 
 <img width="733" height="757" alt="history" src="https://github.com/user-attachments/assets/4cadfa4c-2903-4336-880c-db2fccfaf442" />
 
+There is not any need for instructions once you are in the website then you are good to start viewing updates.
+oh
+for the club quiz you can use arrows for the function of previous and next. 
+you can also use 1,2,3,4 or a,b,c,d to pick options
+and finally click enter to submit.
 
+Hola.
 
 
