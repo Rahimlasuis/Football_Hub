@@ -845,6 +845,218 @@
             }
         });
 
+        function showResults() {
+            let totalScore = 0;
+            let maxPossibleScore = 0;
+
+            quizData.forEach((questionObj, index) => {
+                const selectedOptionIndex = userAnswers[index];
+                if (selectedOptionIndex !== null) {
+                    totalScore += questionObj.points[selectedOptionIndex];
+                }
+                maxPossibleScore += Math.max(...questionObj.points);
+            });
+
+            const finalPercentage = Math.round((totalScore / maxPossibleScore) * 100);
+
+            document.getElementById("score_value").innerText = finalPercentage + "%";
+
+            const currentQuiz = window.location.pathname.split("/").pop().replace(".html", "");
+            const storageKey = `${currentQuiz}_highest_score`;
+
+            let savedHighestScore = localStorage.getItem(storageKey) || 0;
+            savedHighestScore = parseInt(savedHighestScore);
+
+            if (finalPercentage > savedHighestScore) {
+                savedHighestScore = finalPercentage;
+                localStorage.setItem(storageKey, finalPercentage);
+                alert("Conratulations, A new high score has been unlocked and rewards are ready");
+                console.log("High score broken");
+                const highScoreAudio = new Audio("../sounds/cheers.mp3");
+                highScoreAudio.volume = 0.3;
+                triggerCelebration();
+                document.querySelector(".best").innerText = "New Personal Best";
+            } else {
+
+            }
+
+            document.getElementById("highest_score_value").innerText = savedHighestScore + "%";
+
+
+            let statusText = "";
+            if (finalPercentage >= 85) {
+                statusText = "Die Hard Ultra Fan"
+            } else if (finalPercentage >= 50) {
+                statusText = "Loyal Supporter"
+            } else if (finalPercentage >= 25) {
+                statusText = "Casual viewer"
+            } else {
+                statusText = "Quite Low"
+            }
+
+            document.getElementById("loyalty_status").innerText = statusText;
+
+            document.querySelector(".quiz_progress").style.display = "none";
+            document.querySelector(".question_box").style.display = "none";
+            document.getElementById("options_container").style.display = "none";
+            document.querySelector(".navigation_box").style.display = "none";
+
+            document.getElementById("results_screen").style.display = "block"
+
+            const cards = ["reward_bronze", "reward_silver", "reward_gold"];
+            cards.forEach(id => {
+                const cardEl = document.getElementById(id);
+                if (cardEl) {
+                    cardEl.classList.remove("unlocked");
+                    cardEl.classList.add("locked")
+                }
+            });
+
+            if (finalPercentage >= 25) {
+                const bronzeCard = document.getElementById("reward_bronze");
+                bronzeCard.classList.remove("locked");
+                bronzeCard.classList.add("unlocked");
+                bronzeCard.querySelector(".reward_status").innerText = "Unlocked. Yay";
+            }
+
+            if (finalPercentage >= 50) {
+                const silverCard = document.getElementById("reward_silver");
+                silverCard.classList.remove("locked");
+                silverCard.classList.add("unlocked");
+                silverCard.querySelector(".reward_status").innerText = "Unlocked"
+            }
+
+            if (finalPercentage >= 85) {
+                const goldCard = document.getElementById("reward_gold");
+                goldCard.classList.remove("locked");
+                goldCard.classList.add("unlocked");
+                goldCard.querySelector(".reward_status").innerText = "unlocked";
+            }
+
+            let currentHighestScore = localStorage.getItem(storageKey) || 0;
+            currentHighestScore = parseInt(currentHighestScore);
+
+            document.getElementById("user_score").innerText = currentHighestScore + "%";
+
+            const userRow = document.getElementById("user");
+            const userRankText = document.getElementById("user_rank");
+
+
+            const cheetahRank = document.querySelector(".cheetah_rank");
+            const notarombaRank = document.querySelector(".notaromba_rank")
+            const nonameRank = document.querySelector(".noname_rank")
+            const thinkingRank = document.querySelector(".thinking_rank")
+            const capybaraRank = document.querySelector(".capybara_rank")
+            const stuntRank = document.querySelector(".stunt_rank")
+
+            document.getElementById("cheetah").style.order = "1";
+            document.getElementById("notaromba").style.order = "3";
+            document.getElementById("noname").style.order = "5";
+            document.getElementById("thinking").style.order = "7"
+            document.getElementById("capybara").style.order = "9";
+            document.getElementById("stunt").style.order = "11";
+
+            if (currentHighestScore === 100) {
+                userRankText.innerText = "1st";
+                userRow.style.order = "0";
+                cheetahRank.innerText = "2nd";
+                notarombaRank.innerText = "3rd";
+                nonameRank.innerText = "4th";
+                thinkingRank.innerText = "5th";
+                capybaraRank.innerText = "6th";
+                stuntRank.innerText = "7th";
+
+            } else if (currentHighestScore >= 90) {
+                userRankText.innerText = "2nd";
+                userRow.style.order = "2";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "3rd";
+                nonameRank.innerText = "4th";
+                thinkingRank.innerText = "5th";
+                capybaraRank.innerText = "6th";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 75) {
+                userRankText.innerText = "3rd";
+                userRow.style.order = "4";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                nonameRank.innerText = "4th";
+                thinkingRank.innerText = "5th";
+                capybaraRank.innerText = "6th";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 60) {
+                userRankText.innerText = "4th";
+                userRow.style.order = "6";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                nonameRank.innerText = "3rd"
+                thinkingRank.innerText = "5th"
+                capybaraRank.innerText = "6rd";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 40) {
+                userRankText.innerText = "5th";
+                userRow.style.order = "8";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                nonameRank.innerText = "3rd";
+                thinkingRank.innerText = "4th";
+                capybaraRank.innerText = "6rd";
+                stuntRank.innerText = "7th";
+            } else if (currentHighestScore >= 20) {
+                userRankText.innerText = "6th";
+                userRow.style.order = "10";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                nonameRank.innerText = "3rd";
+                thinkingRank.innerText = "4th";
+                capybaraRank.innerText = "5th";
+                stuntRank.innerText = "7th";
+            } else {
+                userRankText.innerText = "7th";
+                userRow.style.order = "12";
+                cheetahRank.innerText = "1st";
+                notarombaRank.innerText = "2nd";
+                nonameRank.innerText = "3rd";
+                thinkingRank.innerText = "4th";
+                capybaraRank.innerText = "5th";
+                stuntRank.innerText = "6th";
+            }
+
+        }
+
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers.fill(null);
+
+            document.querySelector(".quiz_progress").style.display = "block";
+            document.querySelector(".question_box").style.display = "block";
+            document.getElementById("options_container").style.display = "block";
+            document.querySelector(".navigation_box").style.display = "block";
+
+            document.getElementById("results_screen").style.display = "none";
+
+            loadQuestion();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const resetScoreBtn = document.getElementById("reset_highest_score");
+
+            if (resetScoreBtn) {
+                resetScoreBtn.addEventListener("click", function () {
+                    const confirmReset = confirm("Are you sure");
+                    if (confirmReset) {
+                        const currentQuiz = window.location.pathname.split("/").pop().replace(".html", "");
+                        const storageKey = `${currentQuiz}_highest_score`;
+                        localStorage.removeItem(storageKey);
+
+                        window.location.reload();
+
+                    }
+                });
+            }
+        });
+
         function triggerCelebration() {
             confetti({
                 particleCount: 100,
@@ -871,6 +1083,17 @@
                 }, 500);
             }
         }
+
+
+        function triggerDownload(imagePath, fileName) {
+            const a = document.createElement('a');
+            a.href = imagePath;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
 
         document.addEventListener("DOMContentLoaded", function () {
             const cards = document.querySelectorAll(".reward_card");
@@ -911,7 +1134,7 @@
                         wpBox.style.justifyContent = "center";
                         wpBox.innerHTML = `<span style="font-size: 1.2rem;">🖼️</span><br><span style="font-size: 0.8rem; color: #94a3b8;">Wall #${i}</span>`;
                         wpBox.addEventListener("click", function () {
-                            alert(`Downloading Wallpaper ${i} from the ${title}`);
+                            triggerDownload(`../wall/wall1.jpg11${i}.jpg`, `Football_Hub_Wallpaper_${i}.jpg`);
                         });
                         wpGallery.appendChild(wpBox);
                     }
@@ -980,6 +1203,10 @@
                 }
             }
         });
+
+
+
+
     </script>
 
     <div id="reward_modal" class="modal_overlay">
@@ -991,15 +1218,29 @@
             <div class="reward_display_grid">
                 <div class="reward_section">
                     <h3>Wallpapers (<span id="wp_count">0</span>)</h3>
-                    <div id="wallpaper_gallery" class="gallery_row"></div>
+                    <p>Ignore what is directly beneath</p>
+
+                    <div class="gallery_row" id="wallpaper_gallery"></div>
+                    <div id="wallpaper_gallery" class="gallery_row">
+                        <span style="display:block">Wallpaper 1</span>
+                        <a href="../wall/wall1.jpg" target="_blank">Click to get</a>
+                        <span style="display:block">Wallpaper 2</span>
+                        <a href="../wall/wall2.jpg" target="_blank">Click to get</a>
+                        <span style="display:block">Wallpaper 3</span>
+                        <a href="../wall/wall3.jpg" target="_blank">Click to get</a>
+                    </div>
                 </div>
                 <div class="reward_section">
                     <h3>Avatars (<span id="av_count">0</span>)</h3>
+                    <span style="display:block">Avatar 1</span>
+                    <span style="display:block">Avatar 2</span>
+                    <span style="display:block">Avatar 3</span>
                     <div class="gallery_row" id="avatar_gallery"></div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

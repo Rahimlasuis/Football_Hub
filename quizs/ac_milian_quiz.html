@@ -438,14 +438,14 @@
                 </div>
 
                 <div class="reward_card locked" id="reward_silver" data-tier="loyal" data-title="Loyal Supporter pack"
-                    data-wallpapers="4" data-avatars="3">
+                    data-wallpapers="3" data-avatars="3">
                     <div class="reward_icon">🥈</div>
                     <h4>Loyal Supporter Avatar</h4>
                     <p class="reward_status">Requires 50% score</p>
                 </div>
 
                 <div class="reward_card locked" id="reward_gold" data-tier="ultra" data-title="Die Hard Ultra Fan Pack"
-                    data-req="85%" data-wallpapers="8" data-avatars="6">
+                    data-req="85%" data-wallpapers="4" data-avatars="4">
                     <div class="reward_icon">👑</div>
                     <h4>Die Hard Ultra Wallpaper</h4>
                     <p class="reward_status">Requires 85% score</p>
@@ -857,6 +857,17 @@
             }
         }
 
+
+        function triggerDownload(imagePath, fileName) {
+            const a = document.createElement('a');
+            a.href = imagePath;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+
         document.addEventListener("DOMContentLoaded", function () {
             const cards = document.querySelectorAll(".reward_card");
             const modal = document.getElementById("reward_modal");
@@ -896,7 +907,7 @@
                         wpBox.style.justifyContent = "center";
                         wpBox.innerHTML = `<span style="font-size: 1.2rem;">🖼️</span><br><span style="font-size: 0.8rem; color: #94a3b8;">Wall #${i}</span>`;
                         wpBox.addEventListener("click", function () {
-                            alert(`Downloading Wallpaper ${i} from the ${title}`);
+                            triggerDownload(`../wall/wall1.jpg11${i}.jpg`, `Football_Hub_Wallpaper_${i}.jpg`);
                         });
                         wpGallery.appendChild(wpBox);
                     }
@@ -966,6 +977,9 @@
             }
         });
 
+
+
+
     </script>
 
     <div id="reward_modal" class="modal_overlay">
@@ -977,15 +991,29 @@
             <div class="reward_display_grid">
                 <div class="reward_section">
                     <h3>Wallpapers (<span id="wp_count">0</span>)</h3>
-                    <div id="wallpaper_gallery" class="gallery_row"></div>
+                    <p>Ignore what is directly beneath</p>
+
+                    <div class="gallery_row" id="wallpaper_gallery"></div>
+                    <div id="wallpaper_gallery" class="gallery_row">
+                        <span style="display:block">Wallpaper 1</span>
+                        <a href="../wall/wall1.jpg" target="_blank">Click to get</a>
+                        <span style="display:block">Wallpaper 2</span>
+                        <a href="../wall/wall2.jpg" target="_blank">Click to get</a>
+                        <span style="display:block">Wallpaper 3</span>
+                        <a href="../wall/wall3.jpg" target="_blank">Click to get</a>
+                    </div>
                 </div>
                 <div class="reward_section">
                     <h3>Avatars (<span id="av_count">0</span>)</h3>
+                    <span style="display:block">Avatar 1</span>
+                    <span style="display:block">Avatar 2</span>
+                    <span style="display:block">Avatar 3</span>
                     <div class="gallery_row" id="avatar_gallery"></div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
